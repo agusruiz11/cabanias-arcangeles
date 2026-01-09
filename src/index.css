@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+body {
+  font-family: 'Lora', serif;
+  @apply bg-white text-slate-800;
+}
+
+.font-display {
+  font-family: 'Lora', serif;
+}
+
+.text-forest {
+  color: #2d5016;
+}
+
+.text-lake {
+  color: #4a90a4;
+}
+
+.bg-forest {
+  background-color: #2d5016;
+}
+
+.bg-lake {
+  background-color: #4a90a4;
+}
+
+.bg-snow {
+  background-color: #f8fafc;
+}
+
+.bg-wood {
+  background-color: #8b4513;
+}
+
+.border-forest {
+  border-color: #2d5016;
+}
+
+.border-lake {
+  border-color: #4a90a4;
+}
+
+.hover\:bg-forest:hover {
+  background-color: #1f3a0f;
+}
+
+.hover\:bg-lake:hover {
+  background-color: #3a7a8a;
+}
+
+.gradient-forest {
+  background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+}
+
+.gradient-lake {
+  background: linear-gradient(135deg, #4a90a4 0%, #87ceeb 100%);
+}
