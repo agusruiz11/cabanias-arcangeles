@@ -2,18 +2,28 @@
 /**
  * Endpoint: reseñas de Google Maps (Place Details API v1).
  * Cache 24h en archivo. Subir a Hostinger en: public_html/api/
- * Configurar abajo: $API_KEY y $PLACE_ID.
+ *
+ * Las credenciales van en config.php (no se sube a Git).
+ * Copiá config.example.php como config.php y completá $API_KEY y $PLACE_ID.
  */
 
 header('Content-Type: application/json; charset=utf-8');
 header('Access-Control-Allow-Origin: *');
 header('Cache-Control: public, max-age=3600');
 
-// Reemplazá con tus valores (sin comillas extra ni espacios):
-$API_KEY = 'AIzaSyAtu8s27o5rDwSyQqejJmRsKeVHx200U8M';
-$PLACE_ID = 'ChIJv95DpkdwGpYRJMTzmhbgHjY';
+$configFile = __DIR__ . '/config.php';
+if (!is_file($configFile)) {
+    http_response_code(500);
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode([
+        'error' => 'Falta config.php. Copiá config.example.php como config.php y completá $API_KEY y $PLACE_ID.',
+        'httpCode' => 500,
+        'details' => null,
+    ], JSON_UNESCAPED_UNICODE);
+    exit;
+}
+require $configFile;
 
-$CACHE_FILE = __DIR__ . '/cache/google-reviews.json';
 $CACHE_TTL_SECONDS = 86400; // 24 horas
 
 function sendError($message, $httpCode = 500, $details = null) {
@@ -69,10 +79,13 @@ function normalizeResponse($raw) {
     ];
 }
 
-// Validar configuración
-if ($API_KEY === 'PEGAR_API_KEY' || $PLACE_ID === 'PEGAR_PLACE_ID') {
-    sendError('API no configurada: definir $API_KEY y $PLACE_ID en este archivo.', 500, 'Missing config');
+// Validar configuración (debe venir de config.php)
+if (empty($API_KEY) || empty($PLACE_ID) || $API_KEY === 'TU_GOOGLE_MAPS_API_KEY' || $PLACE_ID === 'TU_PLACE_ID') {
+    sendError('API no configurada: editar config.php con tu $API_KEY y $PLACE_ID.', 500, 'Missing config');
 }
+
+$languageCode = isset($LANGUAGE_CODE) && $LANGUAGE_CODE !== '' ? $LANGUAGE_CODE : 'es';
+$CACHE_FILE = __DIR__ . '/cache/google-reviews-' . preg_replace('/[^a-z0-9_-]/i', '', $languageCode) . '.json';
 
 // Cache: si existe y no venció, devolverlo
 $cacheDir = dirname($CACHE_FILE);
@@ -91,7 +104,7 @@ if (file_exists($CACHE_FILE) && (time() - filemtime($CACHE_FILE)) < $CACHE_TTL_S
 }
 
 // Llamar a Google Places API (New) – Place Details
-$url = 'https://places.googleapis.com/v1/places/' . $PLACE_ID;
+$url = 'https://places.googleapis.com/v1/places/' . $PLACE_ID . '?languageCode=' . rawurlencode($languageCode);
 $opts = [
     'http' => [
         'method' => 'GET',

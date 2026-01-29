@@ -1,8 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ExternalLink, Star } from 'lucide-react';
 
 const TRUNCATE_LENGTH = 220;
-const API_URL = '/api/google-reviews.php';
+const getApiUrl = (): string => {
+  try {
+    const env = (import.meta as unknown as { env?: Record<string, string> }).env;
+    if (env?.VITE_GOOGLE_REVIEWS_API_URL) return env.VITE_GOOGLE_REVIEWS_API_URL;
+  } catch {
+    // ignore
+  }
+  return '/api/google-reviews.php';
+};
+const API_URL = getApiUrl();
 
 export interface GoogleReviewItem {
   author: string | null;
@@ -101,16 +110,27 @@ export function GoogleReviews() {
     setState({ status: 'loading' });
     try {
       const res = await fetch(API_URL);
-      const raw = await res.json().catch(() => null);
+      const text = await res.text();
+      let raw: unknown = null;
+      try {
+        raw = text ? JSON.parse(text) : null;
+      } catch {
+        raw = null;
+      }
 
       if (!res.ok) {
-        const msg = raw?.error ?? `Error ${res.status}`;
+        const msg =
+          (raw && typeof raw === 'object' && 'error' in raw && typeof (raw as { error: unknown }).error === 'string')
+            ? (raw as { error: string }).error
+            : `Error ${res.status}`;
         setState({ status: 'error', message: msg });
         return;
       }
 
       if (!raw || typeof raw !== 'object') {
-        setState({ status: 'error', message: 'Respuesta inválida' });
+        const hint =
+          text.slice(0, 50).trim().startsWith('<') ? ' (el servidor devolvió HTML; ¿la API está en /api/?)' : '';
+        setState({ status: 'error', message: `Respuesta inválida${hint}` });
         return;
       }
 

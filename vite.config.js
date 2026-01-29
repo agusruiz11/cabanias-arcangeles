@@ -214,6 +214,15 @@ export default defineConfig({
 			'Cross-Origin-Embedder-Policy': 'credentialless',
 		},
 		allowedHosts: true,
+		// En desarrollo: proxy /api al backend (PHP). Ej: VITE_API_PROXY_TARGET=https://tudominio.com
+		proxy: process.env.VITE_API_PROXY_TARGET
+			? {
+				'/api': {
+					target: process.env.VITE_API_PROXY_TARGET,
+					changeOrigin: true,
+				},
+			}
+			: undefined,
 	},
 	resolve: {
 		extensions: ['.jsx', '.js', '.tsx', '.ts', '.json', ],
@@ -232,15 +241,10 @@ export default defineConfig({
 				'@babel/types'
 			],
 			output: {
-				manualChunks: (id) => {
-					if (id.includes('node_modules')) {
-						if (id.includes('react-dom') || id.includes('react/')) return 'vendor-react';
-						if (id.includes('framer-motion')) return 'vendor-motion';
-						if (id.includes('react-router') || id.includes('react-helmet')) return 'vendor-router';
-						if (id.includes('lucide-react')) return 'vendor-lucide';
-						if (id.includes('@radix-ui')) return 'vendor-radix';
-						return 'vendor';
-					}
+				// Un solo chunk para todo node_modules: evita "PureComponent of undefined"
+				// (react-router y otros usan React; si van en chunks distintos falla)
+				manualChunks(id) {
+					if (id.includes('node_modules')) return 'vendor';
 				},
 				chunkFileNames: 'assets/[name]-[hash].js',
 				entryFileNames: 'assets/[name]-[hash].js',

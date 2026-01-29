@@ -34,7 +34,7 @@ function AboutSection() {
             Nosotros
           </h2>
           <p className="mb-8 text-brand-dark-green/80 sm:mb-10">
-            Reservá tu estadía en Posada del Arcángel. También nos encontrás y podés dejar tu opinión en estas plataformas.
+            También nos encontrás y podés dejar tu opinión en estas plataformas.
           </p>
 
           <div className="grid gap-4 sm:grid-cols-2">
