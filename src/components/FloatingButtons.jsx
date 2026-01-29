@@ -43,10 +43,9 @@ const FloatingButtons = () => {
             {/* Botón Teléfono */}
             <motion.button
               onClick={handlePhone}
-              className="flex items-center justify-center w-14 h-14 rounded-full shadow-lg transform hover:scale-110 transition-all duration-200"
+              className="flex items-center justify-center w-14 h-14 rounded-full shadow-lg transform hover:scale-110 transition-all duration-200 bg-brand-dark-brown"
               style={{
-                backgroundColor: '#8B7355',
-                boxShadow: '0 4px 12px rgba(139, 115, 85, 0.3)'
+                boxShadow: '0 4px 12px rgba(94, 74, 48, 0.3)'
               }}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
@@ -60,10 +59,9 @@ const FloatingButtons = () => {
       {/* Botón principal de toggle */}
       <motion.button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="flex items-center justify-center w-16 h-16 rounded-full shadow-lg transform hover:scale-110 transition-all duration-200"
+        className="flex items-center justify-center w-16 h-16 rounded-full shadow-lg transform hover:scale-110 transition-all duration-200 bg-brand-olive-green"
         style={{
-          backgroundColor: '#B8860B',
-          boxShadow: '0 4px 16px rgba(184, 134, 11, 0.3)'
+          boxShadow: '0 4px 16px rgba(150, 155, 76, 0.3)'
         }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
@@ -85,10 +83,10 @@ const FloatingButtons = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 10 }}
             transition={{ delay: 1 }}
-            className="absolute bottom-0 right-20 bg-gray-800 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap shadow-lg"
+            className="absolute bottom-0 right-20 bg-brand-dark-green text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap shadow-lg"
           >
             ¡Contáctanos!
-            <div className="absolute right-0 top-1/2 transform translate-x-1 -translate-y-1/2 w-2 h-2 bg-gray-800 rotate-45"></div>
+            <div className="absolute right-0 top-1/2 transform translate-x-1 -translate-y-1/2 w-2 h-2 bg-brand-dark-green rotate-45"></div>
           </motion.div>
         )}
       </AnimatePresence>

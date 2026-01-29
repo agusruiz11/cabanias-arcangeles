@@ -5,7 +5,7 @@ import MapIframe from './Iframe';
 
 const Location = () => {
   return (
-    <section id="location" className="py-20" style={{ backgroundColor: '#FDFBEE' }}>
+    <section id="location" className="py-20 bg-brand-beige-pale">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -79,7 +79,7 @@ const Location = () => {
                   </div>
                 </div>
                 
-                <div className="mt-6 p-4 bg-green-50 rounded-lg border border-green-200">
+                <div className="mt-6 p-4 bg-brand-beige-pale rounded-lg border border-brand-olive-green">
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="font-semibold text-forest">Total distancia recorrida: 14 km</p>
@@ -193,7 +193,7 @@ const Location = () => {
           </div>
 
           <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center">
-            <div className="w-12 h-12 bg-lake rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-12 h-12 bg-brand-medium-blue rounded-full flex items-center justify-center mx-auto mb-4">
               <Navigation className="w-6 h-6 text-white" />
             </div>
             <h3 className="font-semibold text-lg text-forest mb-2">Distancias</h3>
@@ -206,7 +206,7 @@ const Location = () => {
           </div>
 
           <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center">
-            <div className="w-12 h-12 bg-gradient-to-br from-forest to-lake rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-12 h-12 bg-gradient-to-br from-brand-dark-green to-brand-medium-blue rounded-full flex items-center justify-center mx-auto mb-4">
               <Clock className="w-6 h-6 text-white" />
             </div>
             <h3 className="font-semibold text-lg text-forest mb-2">Tiempos de Viaje</h3>
@@ -219,14 +219,14 @@ const Location = () => {
           </div>
 
           <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center">
-            <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-12 h-12 bg-gradient-to-br from-brand-olive-green to-brand-lime-green rounded-full flex items-center justify-center mx-auto mb-4">
               <ArrowRight className="w-6 h-6 text-white" />
             </div>
             <h3 className="font-semibold text-lg text-forest mb-2">Coordenadas</h3>
             <p className="text-slate-600 text-sm">
               Lat: -41.2000°<br />
               Lon: -71.5000°<br />
-              <span className="text-xs text-gray-500">Villa Los Coihues</span>
+              <span className="text-xs text-brand-dark-brown opacity-70">Villa Los Coihues</span>
             </p>
           </div>
         </motion.div>

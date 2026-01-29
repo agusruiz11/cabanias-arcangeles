@@ -222,13 +222,36 @@ export default defineConfig({
 		},
 	},
 	build: {
+		target: 'es2020',
+		cssCodeSplit: true,
 		rollupOptions: {
 			external: [
 				'@babel/parser',
 				'@babel/traverse',
 				'@babel/generator',
 				'@babel/types'
-			]
-		}
-	}
+			],
+			output: {
+				manualChunks: (id) => {
+					if (id.includes('node_modules')) {
+						if (id.includes('react-dom') || id.includes('react/')) return 'vendor-react';
+						if (id.includes('framer-motion')) return 'vendor-motion';
+						if (id.includes('react-router') || id.includes('react-helmet')) return 'vendor-router';
+						if (id.includes('lucide-react')) return 'vendor-lucide';
+						if (id.includes('@radix-ui')) return 'vendor-radix';
+						return 'vendor';
+					}
+				},
+				chunkFileNames: 'assets/[name]-[hash].js',
+				entryFileNames: 'assets/[name]-[hash].js',
+				assetFileNames: 'assets/[name]-[hash][extname]',
+			},
+		},
+		assetsInlineLimit: 4096,
+		minify: 'terser',
+		terserOptions: {
+			compress: { passes: 2 },
+		},
+		sourcemap: false,
+	},
 });

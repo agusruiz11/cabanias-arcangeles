@@ -2,61 +2,136 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+/* VolumeTC Font Faces */
+@font-face {
+  font-family: 'VolumeTC';
+  src: url('./assets/fonts/VolumeTC-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'VolumeTC';
+  src: url('./assets/fonts/VolumeTC-Italic.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'VolumeTC Sans';
+  src: url('./assets/fonts/VolumeTCSans-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 body {
-  font-family: 'Lora', serif;
+  font-family: 'VolumeTC', sans-serif;
   @apply bg-white text-slate-800;
 }
 
 .font-display {
-  font-family: 'Lora', serif;
+  font-family: 'VolumeTC Sans', sans-serif;
+  text-transform: uppercase;
 }
 
+.font-italic {
+  font-family: 'VolumeTC', sans-serif;
+  font-style: italic;
+}
+
+/* Colores de marca - Primarios */
 .text-forest {
-  color: #2d5016;
+  color: #15301f; /* Verde Oscuro Intenso */
 }
 
-.text-lake {
-  color: #4a90a4;
+.text-olive {
+  color: #969b4c; /* Verde Oliva */
+}
+
+.text-lime {
+  color: #b5bc5e; /* Verde Lima Suave */
 }
 
 .bg-forest {
-  background-color: #2d5016;
+  background-color: #15301f; /* Verde Oscuro Intenso */
 }
 
-.bg-lake {
-  background-color: #4a90a4;
+.bg-olive {
+  background-color: #969b4c; /* Verde Oliva */
 }
 
-.bg-snow {
-  background-color: #f8fafc;
+.bg-lime {
+  background-color: #b5bc5e; /* Verde Lima Suave */
 }
 
-.bg-wood {
-  background-color: #8b4513;
+.bg-beige-light {
+  background-color: #f2e7ce; /* Beige Claro */
+}
+
+.bg-beige-pale {
+  background-color: #f9f3e7; /* Beige Muy Claro */
+}
+
+/* Colores de marca - Secundarios */
+.text-burnt-orange {
+  color: #cd6718; /* Naranja Quemado */
+}
+
+.text-dark-brown {
+  color: #5e4a30; /* Marrón Oscuro */
+}
+
+.text-medium-blue {
+  color: #5e9fe1; /* Azul Medio Brillante */
+}
+
+.bg-burnt-orange {
+  background-color: #cd6718; /* Naranja Quemado */
+}
+
+.bg-dark-brown {
+  background-color: #5e4a30; /* Marrón Oscuro */
+}
+
+.bg-pale-blue {
+  background-color: #e9f4ff; /* Azul Muy Pálido */
+}
+
+.bg-medium-blue {
+  background-color: #5e9fe1; /* Azul Medio Brillante */
 }
 
 .border-forest {
-  border-color: #2d5016;
+  border-color: #15301f;
 }
 
-.border-lake {
-  border-color: #4a90a4;
+.border-olive {
+  border-color: #969b4c;
+}
+
+.border-lime {
+  border-color: #b5bc5e;
 }
 
 .hover\:bg-forest:hover {
-  background-color: #1f3a0f;
+  background-color: #0f2014;
 }
 
-.hover\:bg-lake:hover {
-  background-color: #3a7a8a;
+.hover\:bg-olive:hover {
+  background-color: #7a7f3d;
+}
+
+.hover\:bg-lime:hover {
+  background-color: #9fa04f;
 }
 
 .gradient-forest {
-  background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+  background: linear-gradient(135deg, #15301f 0%, #969b4c 100%);
 }
 
-.gradient-lake {
-  background: linear-gradient(135deg, #4a90a4 0%, #87ceeb 100%);
+.gradient-olive-lime {
+  background: linear-gradient(135deg, #969b4c 0%, #b5bc5e 100%);
 }

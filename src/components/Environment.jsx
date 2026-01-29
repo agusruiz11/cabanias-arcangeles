@@ -1,10 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import OptimizedImage from '@/components/OptimizedImage';
 import environment from '../assets/imgs/environment.jpg';
 
 const Environment = () => {
   return (
-    <section className="py-20" style={{ backgroundColor: '#FDFBEE' }}>
+    <section className="py-20 bg-brand-beige-pale">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -30,7 +31,7 @@ const Environment = () => {
               Este enclave único es punto de partida inmejorable para realizar actividades al aire libre : desde una tranquila caminata o el mountain bike, pasando por el trekking y la práctica del kayak.
               </p>
               <p>
-              Y por supuesto, en invierno, la cita infaltable :
+              Y por supuesto, en invierno, <span className="font-italic">la cita infaltable</span> :
               El esquí en Cerro Catedral.
               </p>
             </div>
@@ -43,14 +44,16 @@ const Environment = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="rounded-2xl overflow-hidden shadow-2xl">
-              <img 
-                className="w-full h-96 object-cover" 
+            <div className="rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
+              <OptimizedImage
+                src={environment}
                 alt="Vista del lago Gutiérrez con montañas y bosque patagónico"
-               src={environment} />
+                aspectRatio="4/3"
+                className="w-full h-full object-cover min-h-[24rem]"
+              />
             </div>
-            <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-lake rounded-full opacity-20"></div>
-            <div className="absolute -top-6 -right-6 w-16 h-16 bg-forest rounded-full opacity-20"></div>
+            <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-brand-medium-blue rounded-full opacity-20"></div>
+            <div className="absolute -top-6 -right-6 w-16 h-16 bg-brand-dark-green rounded-full opacity-20"></div>
           </motion.div>
         </div>
       </div>

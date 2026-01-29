@@ -2,10 +2,8 @@
 module.exports = {
 	darkMode: ['class'],
 	content: [
-		'./pages/**/*.{js,jsx}',
-		'./components/**/*.{js,jsx}',
-		'./app/**/*.{js,jsx}',
-		'./src/**/*.{js,jsx}',
+		'./index.html',
+		'./src/**/*.{js,jsx,ts,tsx}',
 	],
 	theme: {
 		container: {
@@ -17,10 +15,24 @@ module.exports = {
 		},
 		extend: {
 			fontFamily: {
-				'sans': ['Lora', 'ui-serif', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
-				'display': ['Lora', 'ui-serif', 'Georgia', 'serif'],
+				'sans': ['VolumeTC', 'sans-serif'],
+				'display': ['VolumeTC Sans', 'sans-serif'],
 			},
 			colors: {
+				// Colores de marca - Primarios
+				brand: {
+					'dark-green': '#15301f',      // Verde Oscuro Intenso
+					'beige-light': '#f2e7ce',     // Beige Claro
+					'olive-green': '#969b4c',     // Verde Oliva
+					white: '#ffffff',             // Blanco
+					'beige-pale': '#f9f3e7',      // Beige Muy Claro
+					'lime-green': '#b5bc5e',     // Verde Lima Suave
+					// Colores de marca - Secundarios
+					'burnt-orange': '#cd6718',    // Naranja Quemado
+					'dark-brown': '#5e4a30',      // Marrón Oscuro
+					'pale-blue': '#e9f4ff',       // Azul Muy Pálido
+					'medium-blue': '#5e9fe1',     // Azul Medio Brillante
+				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',

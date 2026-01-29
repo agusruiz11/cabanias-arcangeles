@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import OptimizedImage from '@/components/OptimizedImage';
 import cabania1 from '../assets/imgs/cabania1.jpg';
 import sala from '../assets/imgs/sala.jpg';
 import dormitorio1 from '../assets/imgs/dormitorio1.jpg';
@@ -17,7 +18,7 @@ const CabinGallery = () => {
 
   const cabinTypes = {
     '4-personas': {
-      title: 'Cabaña para 4 Personas',
+      title: 'Cabañas para 4 Personas',
       description: 'Ideal para familias pequeñas o parejas que buscan intimidad',
       capacity: '4 personas',
       size: '65 m²',
@@ -114,7 +115,7 @@ const CabinGallery = () => {
   const currentCabin = cabinTypes[activeTab];
 
   return (
-    <section id="cabin-gallery" className="py-20" style={{ backgroundColor: '#FDFBEE' }}>
+    <section id="cabin-gallery" className="py-20 bg-brand-beige-pale">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -127,21 +128,22 @@ const CabinGallery = () => {
             Nuestras Cabañas
           </h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Elige la cabaña perfecta para tu estadía en la naturaleza patagónica
+            Elige la cabaña perfecta para tu estadía en la naturaleza patagónica <br />
+            Contamos con <b>dos</b> cabañas para 4 personas y otra para 6 personas.
           </p>
         </motion.div>
 
         {/* Pestañas de selección */}
         <div className="flex justify-center mb-12">
-          <div className="bg-gray-100 rounded-full p-1 inline-flex">
+          <div className="bg-brand-beige-light rounded-full p-1 inline-flex">
             {Object.keys(cabinTypes).map((tabKey) => (
               <button
                 key={tabKey}
                 onClick={() => setActiveTab(tabKey)}
                 className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                   activeTab === tabKey
-                    ? 'bg-forest text-white shadow-lg transform scale-105'
-                    : 'text-gray-600 hover:text-forest hover:bg-white'
+                    ? 'bg-brand-dark-green text-white shadow-lg transform scale-105'
+                    : 'text-brand-dark-brown hover:text-brand-dark-green hover:bg-brand-beige-pale'
                 }`}
               >
                 {tabKey === '4-personas' ? '4 Personas' : '6 Personas'}
@@ -156,7 +158,7 @@ const CabinGallery = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 mb-12 border border-green-100"
+          className="bg-gradient-to-br from-brand-beige-pale to-brand-beige-light rounded-2xl p-8 mb-12 border border-brand-olive-green"
         >
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
@@ -170,11 +172,11 @@ const CabinGallery = () => {
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="bg-white rounded-lg p-4 text-center shadow-sm">
                   <div className="text-2xl font-bold text-forest">{currentCabin.capacity}</div>
-                  <div className="text-sm text-gray-600">Capacidad</div>
+                  <div className="text-sm text-brand-dark-brown">Capacidad</div>
                 </div>
                 <div className="bg-white rounded-lg p-4 text-center shadow-sm">
                   <div className="text-2xl font-bold text-forest">{currentCabin.size}</div>
-                  <div className="text-sm text-gray-600">Superficie</div>
+                  <div className="text-sm text-brand-dark-brown">Superficie</div>
                 </div>
               </div>
 
@@ -182,8 +184,8 @@ const CabinGallery = () => {
                 <h4 className="font-semibold text-forest mb-3">Características:</h4>
                 <div className="grid grid-cols-2 gap-2">
                   {currentCabin.features.map((feature, index) => (
-                    <div key={index} className="flex items-center text-sm text-slate-600">
-                      <div className="w-2 h-2 bg-forest rounded-full mr-2"></div>
+                    <div key={index} className="flex items-center text-sm text-brand-dark-brown">
+                      <div className="w-2 h-2 bg-brand-olive-green rounded-full mr-2"></div>
                       {feature}
                     </div>
                   ))}
@@ -191,11 +193,12 @@ const CabinGallery = () => {
               </div>
             </div>
             
-            <div className="relative">
-              <img 
+            <div className="relative aspect-[4/3] min-h-[20rem] rounded-xl overflow-hidden">
+              <OptimizedImage
                 src={currentCabin.images[0].src}
                 alt={currentCabin.images[0].title}
-                className="w-full h-80 object-cover rounded-xl shadow-lg"
+                aspectRatio="4/3"
+                className="w-full h-full object-cover rounded-xl shadow-lg"
               />
               <div className="absolute bottom-4 left-4 bg-black/60 text-white p-3 rounded-lg">
                 <h4 className="font-semibold">{currentCabin.images[0].title}</h4>
@@ -219,17 +222,18 @@ const CabinGallery = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {currentCabin.images.map((image, index) => (
               <motion.div
-                key={index}
+                key={`${image.title}-${index}`}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="group cursor-pointer"
               >
-                <div className="relative overflow-hidden rounded-xl shadow-lg">
-                  <img 
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" 
-                    alt={`${image.title} - ${image.description}`}
+                <div className="relative overflow-hidden rounded-xl shadow-lg aspect-[4/3]">
+                  <OptimizedImage
                     src={image.src}
+                    alt={`${image.title} - ${image.description}`}
+                    aspectRatio="4/3"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 min-h-[16rem]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="absolute bottom-4 left-4 text-white">

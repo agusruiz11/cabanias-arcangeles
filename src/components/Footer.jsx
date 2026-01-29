@@ -40,11 +40,11 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-lg mb-6">Enlaces Rápidos</h4>
             <ul className="space-y-3">
-              <li><span className="hover:text-blue-200 cursor-pointer transition-colors">Nuestras Cabañas</span></li>
-              <li><span className="hover:text-blue-200 cursor-pointer transition-colors">Servicios</span></li>
-              <li><span className="hover:text-blue-200 cursor-pointer transition-colors">Ubicación</span></li>
-              <li><span className="hover:text-blue-200 cursor-pointer transition-colors">Reservas</span></li>
-              <li><span className="hover:text-blue-200 cursor-pointer transition-colors">Contacto</span></li>
+              <li><span className="hover:text-brand-beige-light cursor-pointer transition-colors">Nuestras Cabañas</span></li>
+              <li><span className="hover:text-brand-beige-light cursor-pointer transition-colors">Servicios</span></li>
+              <li><span className="hover:text-brand-beige-light cursor-pointer transition-colors">Ubicación</span></li>
+              <li><span className="hover:text-brand-beige-light cursor-pointer transition-colors">Reservas</span></li>
+              <li><span className="hover:text-brand-beige-light cursor-pointer transition-colors">Contacto</span></li>
             </ul>
           </div>
 
@@ -65,7 +65,7 @@ const Footer = () => {
           <p className="text-sm text-gray-300">
             © 2025 Posada del Arcángel. Todos los derechos reservados. 
             Cabañas en Bariloche - Villa Los Coihues.
-            Made by <a href="https://www.posicionarte.online/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600">Posicionarte Online</a>
+            Made by <a href="https://www.posicionarte.online/" target="_blank" rel="noopener noreferrer" className="text-brand-beige-light hover:text-brand-medium-blue">Posicionarte Online</a>
           </p>
         </div>
       </div>

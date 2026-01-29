@@ -1,117 +1,138 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Check, Plus } from 'lucide-react';
+import { KayakIcon } from '../assets/icons/KayakIcon';
+import {
+  CigaretteOff,
+  Wifi,
+  ParkingCircle,
+  Umbrella,
+  UtensilsCrossed,
+  Dumbbell,
+  Flame,
+  Waves,
+  Sparkles,
+  Lock,
+  Wind,
+  Sun,
+  Grid3x3,
+  Zap,
+  BedDouble,
+  Luggage,
+  Scissors
+} from 'lucide-react';
 
 const Services = () => {
-  const includedServices = [
-    "Limpieza diaria",
-    "Cambio de ropa blanca",
-    "Desayuno continental",
-    "WiFi de alta velocidad",
-    "Estacionamiento privado",
-    "Uso de parrilla y deck",
-    "Calefacción central",
-    "Agua caliente 24hs"
-  ];
-
-  const optionalServices = [
-    "Servicio de mucama extra",
-    "Cena gourmet",
-    "Excursiones guiadas",
-    "Traslado desde/hacia aeropuerto",
-    "Alquiler de bicicletas",
-    "Servicio de lavandería",
-    "Masajes relajantes",
-    "Actividades para niños"
+  const services = [
+    {
+      icon: CigaretteOff,
+      text: "Departamentos para no fumadores"
+    },
+    {
+      icon: Wifi,
+      text: "Internet WiFi"
+    },
+    {
+      icon: ParkingCircle,
+      text: "Estacionamiento cubierto"
+    },
+    {
+      icon: Umbrella,
+      text: "Exclusivo deck a metros del lago"
+    },
+    {
+      icon: UtensilsCrossed,
+      text: "Parrillas"
+    },
+    {
+      icon: Dumbbell,
+      text: "Gimnasio"
+    },
+    {
+      icon: KayakIcon,
+      text: "Kayak"
+    },
+    {
+      icon: Flame,
+      text: "Calefacción centralizada por piso radiante"
+    },
+    {
+      icon: Waves,
+      text: "Acceso al lago"
+    },
+    {
+      icon: Sparkles,
+      text: "Servicio diario de limpieza"
+    },
+    {
+      icon: Lock,
+      text: "Caja de seguridad"
+    },
+    {
+      icon: Wind,
+      text: "Secador de pelo en cada departamento"
+    },
+    {
+      icon: Sun,
+      text: "Reposeras"
+    },
+    {
+      icon: Grid3x3,
+      text: "Aberturas con sistema DVH"
+    },
+    {
+      icon: Zap,
+      text: "Generador de Emergencia"
+    },
+    {
+      icon: BedDouble,
+      text: "Ropa de cama y toallas"
+    },
+    {
+      icon: Luggage,
+      text: "Depósito para equipajes"
+    },
+    {
+      icon: Scissors,
+      text: "Plancha y tabla de planchar (a petición)"
+    }
   ];
 
   return (
-    <section id="services" className="py-20" style={{ backgroundColor: '#FDFBEE' }}>
+    <section id="services" className="py-20 bg-gray-100">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-forest mb-6">
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-6" style={{ color: '#2196F3' }}>
             Servicios
           </h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Disfruta de nuestros servicios incluidos y personaliza tu experiencia 
-            con nuestros servicios opcionales
-          </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Servicios Incluidos */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-100"
-          >
-            <div className="flex items-center mb-6">
-              <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mr-4">
-                <Check className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="font-display text-2xl font-bold text-forest">
-                Servicios Incluidos
-              </h3>
-            </div>
-            
-            <div className="space-y-4">
-              {includedServices.map((service, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="flex items-center"
-                >
-                  <Check className="w-5 h-5 text-green-600 mr-3 flex-shrink-0" />
-                  <span className="text-slate-700">{service}</span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Servicios Opcionales */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 border border-blue-100"
-          >
-            <div className="flex items-center mb-6">
-              <div className="w-12 h-12 bg-lake rounded-full flex items-center justify-center mr-4">
-                <Plus className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="font-display text-2xl font-bold text-forest">
-                Servicios Opcionales
-              </h3>
-            </div>
-            
-            <div className="space-y-4">
-              {optionalServices.map((service, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="flex items-center"
-                >
-                  <Plus className="w-5 h-5 text-lake mr-3 flex-shrink-0" />
-                  <span className="text-slate-700">{service}</span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-9 gap-6 md:gap-8">
+          {services.map((service, index) => {
+            const IconComponent = service.icon;
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                viewport={{ once: true }}
+                className="flex flex-col items-center text-center"
+              >
+                <div className="mb-3 flex items-center justify-center h-12">
+                  <IconComponent className="w-8 h-8 md:w-10 md:h-10 text-black" strokeWidth={1.5} />
+                </div>
+                <p className="text-xs sm:text-sm md:text-base text-gray-800 font-medium leading-tight px-1">
+                  {service.text}
+                </p>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

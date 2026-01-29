@@ -4,7 +4,7 @@ import { Quote } from 'lucide-react';
 
 const Testimonials = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-forest to-slate-800 text-white relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-brand-dark-green to-brand-dark-brown text-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-20 w-32 h-32 border border-white rounded-full"></div>
@@ -20,16 +20,16 @@ const Testimonials = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <Quote className="w-16 h-16 mx-auto mb-8 text-blue-200" />
+          <Quote className="w-16 h-16 mx-auto mb-8 text-brand-beige-light" />
           
-          <blockquote className="font-display text-2xl md:text-4xl font-medium leading-relaxed mb-8">
+          <blockquote className="text-2xl md:text-4xl font-medium leading-relaxed mb-8 font-italic">
             "Un refugio de paz en el corazón de la Patagonia, donde cada amanecer 
             es una postal y cada atardecer una promesa de regreso"
           </blockquote>
           
           <div className="flex flex-col items-center">
-            <div className="w-16 h-1 bg-blue-200 mb-4"></div>
-            <p className="text-lg text-blue-100">
+            <div className="w-16 h-1 bg-brand-beige-light mb-4"></div>
+            <p className="text-lg text-brand-beige-pale">
               La experiencia perfecta te espera en Posada del Arcángel
             </p>
           </div>
