@@ -70,7 +70,7 @@ function App() {
         <meta name="twitter:image" content="/og-image.png" />
       </Helmet>
       
-      <div className="min-h-screen bg-brand-beige-pale">
+      <div className="min-h-screen w-full max-w-[100vw] overflow-x-hidden bg-brand-beige-pale">
         <Header />
         <Hero />
         <Suspense fallback={<div className="min-h-[30vh]" aria-hidden />}>

@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Evitar scroll horizontal y borde blanco: ancho máximo = viewport */
+html {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+#root {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
 /* VolumeTC Font Faces */
 @font-face {
   font-family: 'VolumeTC';
@@ -30,6 +43,11 @@
 body {
   font-family: 'VolumeTC', sans-serif;
   @apply bg-white text-slate-800;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
 .font-display {

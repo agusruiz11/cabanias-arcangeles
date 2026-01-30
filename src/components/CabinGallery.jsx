@@ -115,8 +115,8 @@ const CabinGallery = () => {
   const currentCabin = cabinTypes[activeTab];
 
   return (
-    <section id="cabin-gallery" className="py-20 bg-brand-beige-pale">
-      <div className="max-w-7xl mx-auto px-4">
+    <section id="cabin-gallery" className="py-20 bg-brand-beige-pale overflow-x-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full box-border">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -158,10 +158,10 @@ const CabinGallery = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="bg-gradient-to-br from-brand-beige-pale to-brand-beige-light rounded-2xl p-8 mb-12 border border-brand-olive-green"
+          className="bg-gradient-to-br from-brand-beige-pale to-brand-beige-light rounded-2xl p-4 sm:p-6 md:p-8 mb-12 border border-brand-olive-green overflow-hidden"
         >
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center min-w-0">
+            <div className="min-w-0">
               <h3 className="font-display text-3xl font-bold text-forest mb-4">
                 {currentCabin.title}
               </h3>
@@ -193,12 +193,12 @@ const CabinGallery = () => {
               </div>
             </div>
             
-            <div className="relative aspect-[4/3] min-h-[20rem] rounded-xl overflow-hidden">
+            <div className="relative w-full min-w-0 aspect-[4/3] min-h-[16rem] md:min-h-[20rem] rounded-xl overflow-hidden">
               <OptimizedImage
                 src={currentCabin.images[0].src}
                 alt={currentCabin.images[0].title}
                 aspectRatio="4/3"
-                className="w-full h-full object-cover rounded-xl shadow-lg"
+                className="w-full h-full max-w-full object-cover rounded-xl shadow-lg"
               />
               <div className="absolute bottom-4 left-4 bg-black/60 text-white p-3 rounded-lg">
                 <h4 className="font-semibold">{currentCabin.images[0].title}</h4>
@@ -219,21 +219,21 @@ const CabinGallery = () => {
             Galería de Fotos - {currentCabin.title}
           </h3>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 min-w-0">
             {currentCabin.images.map((image, index) => (
               <motion.div
                 key={`${image.title}-${index}`}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group cursor-pointer"
+                className="group cursor-pointer min-w-0 w-full"
               >
-                <div className="relative overflow-hidden rounded-xl shadow-lg aspect-[4/3]">
+                <div className="relative w-full min-w-0 overflow-hidden rounded-xl shadow-lg aspect-[4/3]">
                   <OptimizedImage
                     src={image.src}
                     alt={`${image.title} - ${image.description}`}
                     aspectRatio="4/3"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 min-h-[16rem]"
+                    className="w-full h-full max-w-full object-cover group-hover:scale-110 transition-transform duration-500 min-h-0"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="absolute bottom-4 left-4 text-white">

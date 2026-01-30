@@ -102,13 +102,13 @@ function ReviewCard({
 
   return (
     <article
-      className="font-google flex min-h-[280px] flex-col rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition-shadow hover:shadow-md"
+      className="font-google flex min-h-0 flex-col rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition-shadow hover:shadow-md"
       aria-label={`Reseña de ${review.author ?? 'Anónimo'}`}
     >
       {/* Arriba: inicial + nombre + fecha */}
-      <div className="mb-3 flex items-start gap-3">
+      <div className="mb-2 flex items-start gap-2">
         <div
-          className="h-10 w-10 shrink-0 overflow-hidden rounded-full flex items-center justify-center text-white text-sm font-medium"
+          className="h-9 w-9 shrink-0 overflow-hidden rounded-full flex items-center justify-center text-white text-sm font-medium"
           style={{ backgroundColor: bgColor }}
           aria-hidden
         >
@@ -135,24 +135,22 @@ function ReviewCard({
 
       {/* Centro: texto de la reseña */}
       {text ? (
-        <div className="flex-1 text-gray-800">
-          <p className="whitespace-pre-wrap text-sm leading-relaxed">{displayText}</p>
+        <div className="min-w-0 text-gray-800">
+          <p className="whitespace-pre-wrap text-sm leading-snug">{displayText}</p>
           {shouldTruncate && (
             <button
               type="button"
               onClick={() => setExpanded((e) => !e)}
-              className="mt-2 text-sm font-medium text-gray-600 underline hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-1 rounded"
+              className="mt-1.5 text-sm font-medium text-gray-600 underline hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-1 rounded"
             >
               {expanded ? 'Leer menos' : 'Leer más'}
             </button>
           )}
         </div>
-      ) : (
-        <div className="flex-1" />
-      )}
+      ) : null}
 
       {/* Abajo: estrellas amarillas + logo Google */}
-      <div className="mt-4 flex items-center justify-between border-t border-gray-100 pt-3">
+      <div className="mt-3 flex items-center justify-between border-t border-gray-100 pt-2">
         <div className="flex items-center gap-0.5" aria-label={`${rating} de 5 estrellas`}>
           {[1, 2, 3, 4, 5].map((i) => (
             <Star
@@ -399,7 +397,7 @@ export function GoogleReviews() {
           <ChevronLeft className="h-5 w-5" aria-hidden />
         </button>
 
-        <div className="min-w-0 flex-1 grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="min-w-0 flex-1 grid grid-cols-1 sm:grid-cols-3 gap-4 items-start">
           {visibleReviews.map((review, i) => (
             <ReviewCard
               key={sliceStart + i}
