@@ -7,12 +7,6 @@ import heroImage from '../assets/imgs/Gutiérrez_Lake.jpg';
 import logoV1 from '../assets/imgs/logo/completo/logo_v1Asset 5.svg';
 
 const Hero = () => {
-  const handleWhatsApp = () => {
-    toast({
-      title: "🚧 Esta función no está implementada aún",
-      description: "¡Pero no te preocupes! Puedes solicitarla en tu próximo prompt! 🚀"
-    });
-  };
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -37,7 +31,7 @@ const Hero = () => {
         >
           <OptimizedImage
             src={logoV1}
-            alt="Posada del Arcángel"
+            alt="Cabañas Arcángeles"
             priority
             className="h-36 md:h-48 lg:h-80 w-auto mx-auto drop-shadow-2xl"
             style={{ filter: 'drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 20px rgba(0, 0, 0, 0.5))' }}
@@ -67,10 +61,12 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <Button 
-            onClick={handleWhatsApp}
+            asChild
             className="font-display bg-brand-olive-green hover:bg-brand-lime-green text-white px-8 py-4 text-lg rounded-full shadow-lg transform hover:scale-105 transition-all duration-200"
           >
-            Reserva tu estadía
+            <a href="#contact">
+              Reservá tu estadía
+            </a>
           </Button>
           
         </motion.div>

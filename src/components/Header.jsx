@@ -52,7 +52,7 @@ const Header = () => {
           <div className="flex-shrink-0">
             {isGalleryPage ? (
               <Link to="/" className="transition-opacity duration-200 hover:opacity-80 hover:scale-110 transition-transform duration-200 inline-block">
-                <img src={logoNegro} alt="Posada del Arcángel" className="h-10 md:h-12 w-auto" />
+                <img src={logoNegro} alt="Cabañas Arcángeles" className="h-10 md:h-12 w-auto" />
               </Link>
             ) : (
               <button
@@ -61,7 +61,7 @@ const Header = () => {
               >
                 <img 
                   src={isScrolled ? logoNegro : logoBlanco} 
-                  alt="Posada del Arcángel" 
+                  alt="Cabañas Arcángeles" 
                   className="h-10 md:h-12 w-auto"
                 />
               </button>

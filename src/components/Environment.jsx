@@ -19,7 +19,7 @@ const Environment = () => {
             </h2>
             <div className="space-y-6 text-lg text-slate-700 leading-relaxed">
               <p>
-              Posada del Arcángel es un complejo turístico exclusivo, ubicado en Villa Los Coihues, a orillas del lago Gutiérrez.
+              Cabañas Arcángeles es un complejo turístico exclusivo, ubicado en Villa Los Coihues, a orillas del lago Gutiérrez.
               </p>
               <p>
               Allí, lo esperan 4 magníficas cabañas, construídas sobre la ladera del cerro San Martín, y en la armonía del entorno de un bosque nativo de cipreses, ñires y maitenes.

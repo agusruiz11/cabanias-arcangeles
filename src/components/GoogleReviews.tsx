@@ -1,5 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, ExternalLink, Star } from 'lucide-react';
+
+const MOBILE_BREAKPOINT = 640;
+
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
+    const handler = () => setIsMobile(mq.matches);
+    handler();
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+  return isMobile;
+}
 import googleLogo from '../assets/icons/google.svg';
 
 const TRUNCATE_LENGTH = 220;
@@ -198,6 +212,8 @@ export function GoogleReviews() {
     | { status: 'success'; data: GoogleReviewsData }
   >({ status: 'loading' });
   const [carouselPage, setCarouselPage] = useState(0);
+  const isMobile = useIsMobile();
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   const fetchReviews = async () => {
     setState({ status: 'loading' });
@@ -287,6 +303,34 @@ export function GoogleReviews() {
     fetchReviews();
   }, []);
 
+  const isSuccess = state.status === 'success';
+  const reviews = isSuccess ? state.data.reviews : [];
+  const CARDS_PER_PAGE = isMobile ? 1 : 3;
+  const totalPages = Math.max(1, Math.ceil(reviews.length / CARDS_PER_PAGE));
+  const safePage = Math.min(carouselPage, Math.max(0, totalPages - 1));
+
+  // Sincronizar scroll con carouselPage en mobile (siempre llamar el hook)
+  useEffect(() => {
+    if (!isSuccess || !isMobile || !scrollRef.current) return;
+    const el = scrollRef.current;
+    const cardWidth = el.offsetWidth;
+    el.scrollTo({ left: safePage * cardWidth, behavior: 'smooth' });
+  }, [safePage, isMobile, isSuccess]);
+
+  // Actualizar carouselPage cuando el usuario hace scroll/swipe (siempre llamar el hook)
+  useEffect(() => {
+    if (!isMobile || !scrollRef.current || totalPages === 0) return;
+    const el = scrollRef.current;
+    const handleScroll = () => {
+      const cardWidth = el.offsetWidth;
+      if (cardWidth <= 0) return;
+      const index = Math.round(el.scrollLeft / cardWidth);
+      setCarouselPage(() => Math.min(totalPages - 1, Math.max(0, index)));
+    };
+    el.addEventListener('scroll', handleScroll, { passive: true });
+    return () => el.removeEventListener('scroll', handleScroll);
+  }, [isMobile, totalPages]);
+
   if (state.status === 'loading') {
     return (
       <section
@@ -350,10 +394,6 @@ export function GoogleReviews() {
   }
 
   const { data } = state;
-  const reviews = data.reviews;
-  const CARDS_PER_PAGE = 3;
-  const totalPages = Math.max(1, Math.ceil(reviews.length / CARDS_PER_PAGE));
-  const safePage = Math.min(carouselPage, totalPages - 1);
   const sliceStart = safePage * CARDS_PER_PAGE;
   const sliceEnd = sliceStart + CARDS_PER_PAGE;
   const visibleReviews = reviews.slice(sliceStart, sliceEnd);
@@ -385,7 +425,7 @@ export function GoogleReviews() {
         )}
       </div>
 
-      {/* Carrusel: 3 tarjetas + flechas */}
+      {/* Carrusel: mobile 1 card + swipe / desktop 3 cards + flechas */}
       <div className="relative flex items-stretch gap-2">
         <button
           type="button"
@@ -397,15 +437,34 @@ export function GoogleReviews() {
           <ChevronLeft className="h-5 w-5" aria-hidden />
         </button>
 
-        <div className="min-w-0 flex-1 grid grid-cols-1 sm:grid-cols-3 gap-4 items-start">
-          {visibleReviews.map((review, i) => (
-            <ReviewCard
-              key={sliceStart + i}
-              review={review}
-              defaultTruncate={(review.text?.length ?? 0) > TRUNCATE_LENGTH}
-              initialColorIndex={sliceStart + i}
-            />
-          ))}
+        {/* Mobile: scroll horizontal con snap, una card a la vez, swipe con el dedo */}
+        {/* Desktop: grid de 3 cards */}
+        <div
+          ref={scrollRef}
+          className={`min-w-0 flex-1 ${isMobile ? 'flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory scroll-smooth [-webkit-overflow-scrolling:touch] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden' : ''}`}
+        >
+          {isMobile ? (
+            reviews.map((review, i) => (
+              <div key={i} className="flex-[0_0_100%] shrink-0 snap-start">
+                <ReviewCard
+                  review={review}
+                  defaultTruncate={(review.text?.length ?? 0) > TRUNCATE_LENGTH}
+                  initialColorIndex={i}
+                />
+              </div>
+            ))
+          ) : (
+            <div className="grid grid-cols-3 gap-4 items-start">
+              {visibleReviews.map((review, i) => (
+                <ReviewCard
+                  key={sliceStart + i}
+                  review={review}
+                  defaultTruncate={(review.text?.length ?? 0) > TRUNCATE_LENGTH}
+                  initialColorIndex={sliceStart + i}
+                />
+              ))}
+            </div>
+          )}
         </div>
 
         <button

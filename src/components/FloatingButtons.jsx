@@ -7,7 +7,7 @@ const FloatingButtons = () => {
 
   const handleWhatsApp = () => {
     const phoneNumber = '54911XXXX-XXXX'; // Reemplazar con el número real
-    const message = encodeURIComponent('Hola! Me interesa reservar en Posada del Arcángel. ¿Podrían darme más información?');
+    const message = encodeURIComponent('Hola! Me interesa reservar en Cabañas Arcángeles. ¿Podrían darme más información?');
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   };
 
@@ -86,7 +86,7 @@ const FloatingButtons = () => {
             className="absolute font-display bottom-0 right-20 bg-[#cd6718] text-white px-3 py-2 text-sm whitespace-nowrap shadow-lg"
             style={{ borderRadius: '10px' }}
           >
-            <span className="font-display">¡Contactanos!</span>
+            <span className="font-display">¡Contactános!</span>
             <div className="absolute right-0 top-1/2 transform translate-x-1 -translate-y-1/2 w-2 h-2 bg-[#cd6718] rotate-45"></div>
           </motion.div>
         )}

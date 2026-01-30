@@ -11,8 +11,8 @@ const Footer = () => {
           <div>
             <img
               src={logo}
-              alt="Logo Posada del Arcángel"
-              className="w-56 mb-6 transition-transform duration-300 hover:scale-110"
+              alt="Logo Cabañas Arcángeles"
+              className="w-56 mb-6 mx-auto transition-transform duration-300 hover:scale-110"
               style={{ display: 'block' }}
             />
           </div>
@@ -54,11 +54,11 @@ const Footer = () => {
               </a>
               
               <a
-                href="mailto:info@posadadelarcangel.com"
+                href="mailto:info@cabanasarcangeles.com"
                 className="flex items-center space-x-3 hover:text-[#5e9fe1] transition-colors"
               >
                 <Mail className="w-5 h-5 flex-shrink-0 text-[#cd6718]" />
-                <span>info@posadadelarcangel.com</span>
+                <span>info@cabanasarcangeles.com</span>
               </a>
             </div>
           </div>

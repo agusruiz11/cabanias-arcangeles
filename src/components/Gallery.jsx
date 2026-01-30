@@ -45,7 +45,7 @@ const Gallery = () => {
   return (
     <div className="min-h-screen bg-brand-beige-pale">
       <Helmet>
-        <title>Galería de Fotos - Cabañas Posada del Arcángel | Bariloche</title>
+        <title>Galería de Fotos - Cabañas Arcángeles | Bariloche</title>
         <meta name="description" content="Galería de fotos de nuestras cabañas en Bariloche. Descubre los espacios, el entorno y las vistas al Lago Gutiérrez." />
       </Helmet>
       <Header />

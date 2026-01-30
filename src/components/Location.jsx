@@ -18,7 +18,7 @@ const Location = () => {
             Cómo Llegar
           </h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Instrucciones detalladas para llegar a Posada del Arcángel
+            Instrucciones detalladas para llegar a Cabañas Arcángeles
           </p>
         </motion.div>
 
@@ -115,7 +115,7 @@ const Location = () => {
             </div>
             
             <div className="grid lg:grid-cols-2 gap-8">
-              <div>
+              <div className="max-w-md mx-auto">
                 <h4 className="font-semibold text-xl text-forest mb-4">Usted está en Villa Los Coihues</h4>
                 <div className="space-y-4">
                   <div className="flex items-start space-x-3">
@@ -132,11 +132,11 @@ const Location = () => {
                       <span className="text-white text-sm font-bold">2</span>
                     </div>
                     <p className="text-slate-600">
-                      Se continúa derecho tres cuadras, por calle 'Bosques Petrificados'. Se dobla a la derecha por calle 'Parque Nacional Arrayanes'. Sobre la izq., a 50 mt, está ubicada la Posada del Arcángel.
+                      Se continúa derecho tres cuadras, por calle 'Bosques Petrificados'. Se dobla a la derecha por calle 'Parque Nacional Arrayanes'. Sobre la izq., a 50 mt, está ubicada la Cabañas Arcángeles.
                     </p>
                   </div>
                 </div>
-                
+{/*                 
                 <div className="mt-6">
                   <h5 className="font-semibold text-lg text-forest mb-3">Servicios en Villa Los Coihues:</h5>
                   <div className="grid grid-cols-2 gap-3">
@@ -161,12 +161,12 @@ const Location = () => {
                       <span className="text-slate-600">Locutorios/Internet</span>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
               
               <MapIframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3003.7629705095574!2d-71.41494399999999!3d-41.1615232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x961a7047a643debf%3A0x361ee0169af3c424!2zQ2FiYcOxYXMgQXJjw6FuZ2VsZXM!5e0!3m2!1ses!2sar!4v1758821147284!5m2!1ses!2sar"
-                title="Mapa de Villa Los Coihues - Posada del Arcángel"
+                title="Mapa de Villa Los Coihues - Cabañas Arcángeles"
               />
             </div>
           </div>

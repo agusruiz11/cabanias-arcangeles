@@ -60,7 +60,7 @@ const FinalCTA = () => {
               >
                 <Mail className="w-5 h-5 flex-shrink-0" />
                 <span className="text-sm sm:text-base">
-                  info@posadadelarcangel.com
+                  info@cabanasarcangeles.com
                 </span>
               </Button>
             </div>
