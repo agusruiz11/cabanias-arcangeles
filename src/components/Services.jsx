@@ -18,7 +18,11 @@ import {
   Zap,
   BedDouble,
   Luggage,
-  Scissors
+  Scissors,
+  Tv,
+  Coffee,
+  Refrigerator,
+  ChefHat
 } from 'lucide-react';
 
 const Services = () => {
@@ -36,8 +40,8 @@ const Services = () => {
       text: "Estacionamiento cubierto"
     },
     {
-      icon: Umbrella,
-      text: "Exclusivo deck a metros del lago"
+      icon: Tv,
+      text: "Televisión pantalla plana"
     },
     {
       icon: UtensilsCrossed,
@@ -53,15 +57,11 @@ const Services = () => {
     },
     {
       icon: Flame,
-      text: "Calefacción centralizada por piso radiante"
+      text: "Estufas"
     },
     {
       icon: Waves,
       text: "Acceso al lago"
-    },
-    {
-      icon: Sparkles,
-      text: "Servicio diario de limpieza"
     },
     {
       icon: Lock,
@@ -69,7 +69,7 @@ const Services = () => {
     },
     {
       icon: Wind,
-      text: "Secador de pelo en cada departamento"
+      text: "Secador de pelo"
     },
     {
       icon: Sun,
@@ -80,8 +80,12 @@ const Services = () => {
       text: "Aberturas con sistema DVH"
     },
     {
-      icon: Zap,
-      text: "Generador de Emergencia"
+      icon: ChefHat,
+      text: "Cocina equipada"
+    },
+    {
+      icon: Refrigerator,
+      text: "Heladera"
     },
     {
       icon: BedDouble,
@@ -92,8 +96,8 @@ const Services = () => {
       text: "Depósito para equipajes"
     },
     {
-      icon: Scissors,
-      text: "Plancha y tabla de planchar (a petición)"
+      icon: Coffee,
+      text: "Cafetera"
     }
   ];
 

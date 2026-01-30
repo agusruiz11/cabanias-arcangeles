@@ -83,10 +83,11 @@ const FloatingButtons = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 10 }}
             transition={{ delay: 1 }}
-            className="absolute bottom-0 right-20 bg-brand-dark-green text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap shadow-lg"
+            className="absolute font-display bottom-0 right-20 bg-[#cd6718] text-white px-3 py-2 text-sm whitespace-nowrap shadow-lg"
+            style={{ borderRadius: '10px' }}
           >
-            ¡Contáctanos!
-            <div className="absolute right-0 top-1/2 transform translate-x-1 -translate-y-1/2 w-2 h-2 bg-brand-dark-green rotate-45"></div>
+            <span className="font-display">¡Contactanos!</span>
+            <div className="absolute right-0 top-1/2 transform translate-x-1 -translate-y-1/2 w-2 h-2 bg-[#cd6718] rotate-45"></div>
           </motion.div>
         )}
       </AnimatePresence>

@@ -50,9 +50,11 @@ function normalizeResponse($raw) {
         foreach ($raw['reviews'] as $r) {
             $author = null;
             $profileUri = null;
+            $photoUri = null;
             if (!empty($r['authorAttribution'])) {
                 $author = $r['authorAttribution']['displayName'] ?? null;
                 $profileUri = $r['authorAttribution']['uri'] ?? null;
+                $photoUri = $r['authorAttribution']['photoUri'] ?? null;
             }
             $rating = isset($r['rating']) ? (float) $r['rating'] : null;
             $relativeTime = !empty($r['relativePublishTimeDescription']) ? $r['relativePublishTimeDescription'] : null;
@@ -63,6 +65,7 @@ function normalizeResponse($raw) {
             $reviews[] = [
                 'author' => $author,
                 'profileUri' => $profileUri,
+                'photoUri' => $photoUri,
                 'rating' => $rating,
                 'relativeTime' => $relativeTime,
                 'text' => $text,

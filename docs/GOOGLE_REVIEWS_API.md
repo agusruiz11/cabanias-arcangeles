@@ -77,6 +77,7 @@ import GoogleReviews from '@/components/GoogleReviews';
 El componente hace `fetch` a **`/api/google-reviews.php`** (ruta relativa al origen). En producción, el mismo dominio que sirve el React debe servir también el PHP (por ejemplo `tudominio.com` → React y `tudominio.com/api/google-reviews.php` → PHP).
 
 **Desarrollo local:** si corrés solo Vite (`npm run dev`), el PHP no está en local. Opciones:
+- **Mock para ver las tarjetas:** crear `.env.local` en la raíz con `VITE_GOOGLE_REVIEWS_MOCK=true`. El componente mostrará 3 reseñas de ejemplo (con y sin foto, texto largo) para poder editar la UI sin API. Si no configurás nada y la API falla en dev, también se usa el mock como fallback.
 - Crear un archivo `.env` en la raíz del proyecto con `VITE_API_PROXY_TARGET=https://tudominio.com` (reemplazá por la URL real del sitio). Así las peticiones a `/api/` se redirigen al backend en producción y las reseñas cargan en local.
 - O proxy hacia un PHP local (ej. `php -S localhost:8080` en `public_html` y `VITE_API_PROXY_TARGET=http://localhost:8080`).
 - O probar directamente en el entorno de Hostinger después del deploy.
@@ -99,6 +100,7 @@ El PHP devuelve siempre este formato (o error con status 500 y JSON `{ error, ht
     {
       "author": "string | null",
       "profileUri": "string | null",
+      "photoUri": "string | null",
       "rating": number | null,
       "relativeTime": "string | null",
       "text": "string | null"

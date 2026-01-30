@@ -42,6 +42,11 @@ body {
   font-style: italic;
 }
 
+/* Solo para tarjetas de reseñas Google */
+.font-google {
+  font-family: 'Roboto', sans-serif;
+}
+
 /* Colores de marca - Primarios */
 .text-forest {
   color: #15301f; /* Verde Oscuro Intenso */

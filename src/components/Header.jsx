@@ -77,7 +77,7 @@ const Header = () => {
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-burnt-orange transition-all duration-200 group-hover:w-full"></span>
                 </Link>
               ) : isGalleryPage ? (
-                <Link key={item.id} to="/" className={navLinkClass}>
+                <Link key={item.id} to={`/#${item.id}`} className={navLinkClass}>
                   {item.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-burnt-orange transition-all duration-200 group-hover:w-full"></span>
                 </Link>
@@ -129,7 +129,7 @@ const Header = () => {
                 ) : isGalleryPage ? (
                   <Link
                     key={item.id}
-                    to="/"
+                    to={`/#${item.id}`}
                     onClick={() => setIsMenuOpen(false)}
                     className="block w-full text-left px-3 py-2 text-base font-medium text-brand-dark-green hover:text-brand-burnt-orange hover:bg-brand-beige-pale rounded-md transition-colors duration-200"
                   >

@@ -29,11 +29,20 @@ function AboutSection() {
         >
           <h2
             id="about-heading"
-            className="font-display mb-2 text-2xl font-medium text-brand-dark-green sm:text-3xl"
+            className="font-display text-2xl font-medium text-brand-dark-green sm:text-3xl"
           >
             Nosotros
           </h2>
-          <p className="mb-8 text-brand-dark-green/80 sm:mb-10">
+          <p className="mt-4 text-brand-dark-green/80 sm:mb-4">
+            Cabañas Arcángeles es un complejo turístico exclusivo, ubicado en Villa Los Coihues, a orillas del lago Gutiérrez. 
+            Allí, lo esperan 4 magníficas cabañas, construídas sobre la ladera del cerro San Martín, y en la armonía del entorno de un bosque nativo de cipreses, ñires y maitenes. 
+            Rodeado por los imponentes cerros Otto y Ventana,	el lugar nos invita a tomar contacto con el encanto de la naturaleza.
+            Este enclave único es punto de partida inmejorable para realizar actividades al aire libre : desde una tranquila caminata o el mountain bike, pasando por el trekking y la práctica del kayak. Y por supuesto, en invierno, la cita infaltable : El esquí en Cerro Catedral.
+          </p>
+          <div className="mt-4">
+            <GoogleReviews />
+          </div>
+          <p className="mt-8 text-brand-dark-green/80 sm:mb-4">
             También nos encontrás y podés dejar tu opinión en estas plataformas.
           </p>
 
@@ -85,9 +94,6 @@ function AboutSection() {
             </a>
           </div>
 
-          <div className="mt-12">
-            <GoogleReviews />
-          </div>
         </motion.div>
       </div>
     </section>
