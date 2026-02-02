@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { toast } from '@/components/ui/use-toast';
 import OptimizedImage from '@/components/OptimizedImage';
-import heroImage from '../assets/imgs/Gutiérrez_Lake.jpg';
+import heroImage from '../assets/imgs/hero3.jpg';
 import logoV1 from '../assets/imgs/logo/completo/logo_v1Asset 5.svg';
 
 const Hero = () => {
@@ -38,20 +38,29 @@ const Hero = () => {
           />
         </motion.div>
 
-        <motion.span>
+        {/* <motion.span>
           <span className="font-display font-bold text-2xl md:text-3xl lg:text-3xl my-8 max-w-2xl mx-auto leading-relaxed drop-shadow-2xl font-light">
             Viví Bariloche, dormí como en casa.
           </span>
-        </motion.span>
+        </motion.span> */}
 
         <motion.p 
-          className="text-lg md:text-xl lg:text-2xl mb-8 mt-6 max-w-2xl mx-auto leading-relaxed drop-shadow-2xl font-italic font-light"
+          className="text-lg md:text-xl lg:text-2xl mb-0 mt-6 max-w-2xl mx-auto leading-relaxed drop-shadow-2xl "
           style={{ textShadow: '2px 2px 6px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 0, 0, 0.5)' }}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Cabañas en Bariloche a 200 metros del lago Gutiérrez. <br /> Ubicación ideal, tranquilidad real.
+          Cabañas en Bariloche a 200 metros del lago Gutiérrez.
+        </motion.p>
+        <motion.p 
+          className="text-lg md:text-xl lg:text-2xl mb-8 mt-0 max-w-2xl mx-auto leading-relaxed drop-shadow-2xl font-italic font-light"
+          style={{ textShadow: '2px 2px 6px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 0, 0, 0.5)' }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          Ubicación ideal, tranquilidad real.
         </motion.p>
 
         <motion.div 

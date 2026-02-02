@@ -14,15 +14,15 @@ const Environment = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-forest mb-6">
-              El Entorno Perfecto
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-forest mb-6">
+              Arcangeles - Villa Los Coihues
             </h2>
             <div className="space-y-6 text-lg text-slate-700 leading-relaxed">
               <p>
               Cabañas Arcángeles es un complejo de cabañas, ubicado en Villa Los Coihues, a 200 metrosdel lago Gutiérrez.
               </p>
               <p>
-              Allí, lo esperan cabañas de 4, 5 y hasta 8 personas, construídas sobre la ladera del cerro San Martín, y en la armonía del entorno de un bosque nativo de cipreses, ñires y maitenes.
+              Allí, lo esperan cabañas de 4, 6 y hasta 8 personas, construídas sobre la ladera del cerro San Martín, y en la armonía del entorno de un bosque nativo de cipreses, ñires y maitenes.
               </p>
               <p>
               Rodeado por los imponentes cerros Otto y Ventana,	el entorno ofrece múltiples actividades al aire libre, con senderos cercanos que llevan a cascadas y miradores, alquiler de bicicletas, paseos a caballo y disfrutar de las playas del Lago Gutiérrez y salidas en kayak.

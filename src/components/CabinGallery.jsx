@@ -10,6 +10,7 @@ import banio from '../assets/imgs/banio.jpg';
 import cabania2 from '../assets/imgs/cabania2.jpg';
 import sala2 from '../assets/imgs/sala2.jpg';
 import dormitorio3 from '../assets/imgs/dormitorio3.jpg';
+import dormitorio4 from '../assets/imgs/dormitorio4.jpg';
 import banio2 from '../assets/imgs/banio2.jpg';
 import patio from '../assets/imgs/patio.jpg';
 
@@ -109,6 +110,65 @@ const CabinGallery = () => {
           src: patio
         }
       ]
+    },
+    '8-personas': {
+      title: 'Loft para 8 Personas',
+      description: 'Ideal para grupos grandes, familias extensas o reuniones con amigos',
+      capacity: '8 personas',
+      size: '120 m²',
+      features: ['4 dormitorios', '3 baños completos', 'Cocina amplia', 'Deck grande', 'Chimenea', 'Vista panorámica', 'Parrilla'],
+      images: [
+        {
+          title: "Exterior Cabaña 8 personas",
+          description: "Cabaña amplia con deck extenso y vista al lago",
+          src: cabania2
+        },
+        {
+          title: "Sala de Estar Amplia",
+          description: "Espacio generoso con chimenea y sofás cómodos",
+          src: sala2
+        },
+        {
+          title: "Dormitorio Principal",
+          description: "Suite principal con baño privado",
+          src: dormitorio1
+        },
+        {
+          title: "Segundo Dormitorio",
+          description: "Dormitorio con cama matrimonial",
+          src: dormitorio2
+        },
+        {
+          title: "Tercer Dormitorio",
+          description: "Dormitorio con literas",
+          src: dormitorio3
+        },
+        {
+          title: "Cuarto Dormitorio",
+          description: "Dormitorio adicional para grupos grandes",
+          src: dormitorio4
+        },
+        {
+          title: "Cocina Amplia",
+          description: "Cocina espaciosa con isla central",
+          src: cocina
+        },
+        {
+          title: "Baño Principal",
+          description: "Baño principal con bañera",
+          src: banio
+        },
+        {
+          title: "Segundo Baño",
+          description: "Baño secundario con ducha",
+          src: banio2
+        },
+        {
+          title: "Deck y Parrilla",
+          description: "Terraza amplia con parrilla y vista panorámica",
+          src: patio
+        }
+      ]
     }
   };
 
@@ -129,7 +189,7 @@ const CabinGallery = () => {
           </h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
             Elige la cabaña perfecta para tu estadía en la naturaleza patagónica <br />
-            Contamos con <b>dos</b> cabañas para 4 personas y otra para 6 personas.
+            Contamos con cabañas para 4, 6 y 8 personas.
           </p>
         </motion.div>
 
@@ -146,7 +206,7 @@ const CabinGallery = () => {
                     : 'text-brand-dark-brown hover:text-brand-dark-green hover:bg-brand-beige-pale'
                 }`}
               >
-                {tabKey === '4-personas' ? '4 Personas' : '6 Personas'}
+                {tabKey === '4-personas' ? '4 Personas' : tabKey === '6-personas' ? '6 Personas' : '8 Personas'}
               </button>
             ))}
           </div>

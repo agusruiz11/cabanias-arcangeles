@@ -36,29 +36,47 @@ const Footer = () => {
               <h4 className="font-display text-[#b5bc5e] text-lg mb-6 text-center">Contacto</h4>
             <div className="space-y-4">              
               <a
-                href="tel:+54294444XXXX"
+                href="tel:+5491162092643"
                 className="flex items-center space-x-3 hover:text-[#5e9fe1] transition-colors"
               >
                 <Phone className="w-5 h-5 flex-shrink-0 text-[#cd6718]" />
-                <span>(0294) 444-XXXX</span>
+                <span>+54 9 11 6209-2643</span>
               </a>
               
               <a
-                href="https://wa.me/54294XXXXXXXX"
+                href="https://wa.me/5491162092643"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-3 hover:text-[#5e9fe1] transition-colors"
               >
                 <MessageCircle className="w-5 h-5 flex-shrink-0 text-[#cd6718]" />
-                <span>+54 9 294 XXX-XXXX</span>
+                <span>+54 9 11 6209-2643</span>
               </a>
               
               <a
-                href="mailto:info@cabanasarcangeles.com"
+                href="mailto:info@cabañasarcangeles.com"
                 className="flex items-center space-x-3 hover:text-[#5e9fe1] transition-colors"
               >
                 <Mail className="w-5 h-5 flex-shrink-0 text-[#cd6718]" />
-                <span>info@cabanasarcangeles.com</span>
+                <span>info@cabañasarcangeles.com</span>
+              </a>
+              <a
+                href="https://www.instagram.com/arcangelesbariloche"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-3 hover:text-[#5e9fe1] transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  className="w-5 h-5 flex-shrink-0 text-[#cd6718]"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="6" stroke="currentColor" strokeWidth="2"/>
+                  <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2"/>
+                  <circle cx="17" cy="7" r="1.2" fill="currentColor"/>
+                </svg>
+                <span>@arcangelesbariloche</span>
               </a>
             </div>
           </div>
@@ -126,9 +144,8 @@ const Footer = () => {
             <div className="space-y-3 text-sm">
               <p>Check-in: 15:00 hs</p>
               <p>Check-out: 11:00 hs</p>
-              <p>Capacidad: 2-6 personas por cabaña</p>
-              <p>Mascotas: Consultar disponibilidad</p>
-              <p>Temporada alta: Dic - Mar</p>
+              <p>Capacidad: 2-8 personas por cabaña</p>
+              <p>Mascotas: no permitidas</p>
             </div>
           </div>
         </div>

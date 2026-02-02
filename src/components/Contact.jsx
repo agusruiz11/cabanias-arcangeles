@@ -6,10 +6,19 @@ import { toast } from '@/components/ui/use-toast';
 
 const FinalCTA = () => {
   const handleContact = (method) => {
-    toast({
-      title: "🚧 Esta función no está implementada aún",
-      description: "¡Pero no te preocupes! Puedes solicitarla en tu próximo prompt! 🚀"
-    });
+    if (method === 'whatsapp') {
+      const message = encodeURIComponent('Hola! Me interesa reservar en Cabañas Arcángeles. ¿Podrían darme más información?');
+      window.open(`https://wa.me/5491162092643?text=${message}`, '_blank');
+    } else if (method === 'phone') {
+      window.location.href = 'tel:+5491162092643';
+    } else if (method === 'email') {
+      window.location.href = 'mailto:info@cabañasarcangeles.com';
+    } else {
+      toast({
+        title: "🚧 Esta función no está implementada aún",
+        description: "¡Pero no te preocupes! Puedes solicitarla en tu próximo prompt! 🚀"
+      });
+    }
   };
 
   return (
@@ -32,7 +41,7 @@ const FinalCTA = () => {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Button 
               onClick={() => handleContact('whatsapp')}
-              className="text-white px-6 py-4 text-base rounded-full flex items-center gap-3 shadow-lg transform hover:scale-105 transition-all duration-200 min-w-fit bg-brand-dark-brown hover:bg-brand-burnt-orange border-2 border-brand-dark-brown hover:border-brand-burnt-orange"
+              className="text-white px-6 py-4 text-base rounded-full flex items-center gap-3 shadow-lg transform hover:scale-105 transition-all duration-200 min-w-fit bg-brand-dark-brown hover:bg-[#25d366] border-2 border-brand-dark-brown hover:border-[#25d366]"
               style={{ whiteSpace: 'nowrap' }}
             >
               <MessageCircle className="w-5 h-5 flex-shrink-0" />
@@ -49,7 +58,7 @@ const FinalCTA = () => {
               >
                 <Phone className="w-5 h-5 flex-shrink-0" />
                 <span className="font-display text-sm sm:text-base">
-                  (0294) 444-XXXX
+                  +54 9 11 6209-2643
                 </span>
               </Button>
               
@@ -60,7 +69,7 @@ const FinalCTA = () => {
               >
                 <Mail className="w-5 h-5 flex-shrink-0" />
                 <span className="text-sm sm:text-base">
-                  info@cabanasarcangeles.com
+                  info@cabañasarcangeles.com
                 </span>
               </Button>
             </div>
