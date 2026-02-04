@@ -17,7 +17,7 @@ const Footer = () => {
             />
           </div>
             <div className="space-y-4">
-            <h4 className="font-display text-[#b5bc5e] text-lg mb-6 text-center">Ubicación</h4>
+            <h4 className="font-display text-[#b5bc5e] text-xl mb-6 text-center">Ubicación</h4>
               <a
                 href="https://maps.app.goo.gl/nanBVxe5UNXXKAF76"
                 target="_blank"
@@ -25,7 +25,7 @@ const Footer = () => {
                 className="flex items-start space-x-3 hover:text-[#5e9fe1] transition-colors group"
               >
                 <MapPin className="w-5 h-5 mt-1 flex-shrink-0 text-[#cd6718]" />
-                <div>
+                <div className="text-base">
                   <span className="block">Villa Los Coihues</span>
                   <span className="block">Lago Gutiérrez, Bariloche</span>
                   <span className="block">Río Negro, Argentina</span>
@@ -33,8 +33,8 @@ const Footer = () => {
               </a>
             </div>
             <div className="space-y-4">
-              <h4 className="font-display text-[#b5bc5e] text-lg mb-6 text-center">Contacto</h4>
-            <div className="space-y-4">              
+              <h4 className="font-display text-[#b5bc5e] text-xl mb-6 text-center">Contacto</h4>
+            <div className="space-y-4 text-base">              
               <a
                 href="tel:+5491162092643"
                 className="flex items-center space-x-3 hover:text-[#5e9fe1] transition-colors"
@@ -83,8 +83,8 @@ const Footer = () => {
 
           {/* Enlaces rápidos */}
           <div>
-            <h4 className="font-display text-[#b5bc5e] text-lg mb-6 text-center">Enlaces Rápidos</h4>
-            <ul className="space-y-3 text-center">
+            <h4 className="font-display text-[#b5bc5e] text-xl mb-6 text-center">Enlaces Rápidos</h4>
+            <ul className="space-y-3 text-center text-base">
               <li>
                 <a
                   href="#cabin-gallery"
@@ -140,8 +140,8 @@ const Footer = () => {
 
           {/* Información adicional */}
           <div>
-            <h4 className="font-display text-[#b5bc5e] text-lg mb-6 text-center">Información</h4>
-            <div className="space-y-3 text-sm">
+            <h4 className="font-display text-[#b5bc5e] text-xl mb-6 text-center">Información</h4>
+            <div className="space-y-3 text-base">
               <p>Check-in: 15:00 hs</p>
               <p>Check-out: 11:00 hs</p>
               <p>Capacidad: 2-8 personas por cabaña</p>
@@ -151,9 +151,9 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-white/20 mt-12 pt-8 text-center">
-          <p className="text-sm text-[#f2e7ce]">
+          <p className="text-base text-[#f2e7ce]">
             © 2026 Cabañas Arcángeles. Todos los derechos reservados. 
-            Made by <a href="https://www.posicionarte.online/" target="_blank" rel="noopener noreferrer" className="text-display text-[#b5bc5e] hover:text-[#cd6718]">Posicionarte Online</a>
+            Made by <a href="https://posicionarte.online/" target="_blank" rel="noopener noreferrer" className="text-display text-[#b5bc5e] hover:text-[#cd6718]">Posicionarte Online</a>
           </p>
         </div>
       </div>

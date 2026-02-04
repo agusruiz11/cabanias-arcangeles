@@ -1,5 +1,6 @@
 import path from 'node:path';
 import react from '@vitejs/plugin-react';
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import { createLogger, defineConfig } from 'vite';
 import inlineEditPlugin from './plugins/visual-editor/vite-plugin-react-inline-editor.js';
 import editModeDevPlugin from './plugins/visual-editor/vite-plugin-edit-mode.js';
@@ -206,8 +207,16 @@ export default defineConfig({
 	plugins: [
 		...(isDev ? [inlineEditPlugin(), editModeDevPlugin(), iframeRouteRestorationPlugin()] : []),
 		react(),
+		// Optimización de imágenes en build: compresión JPEG/PNG para menor peso
+		!isDev && ViteImageOptimizer({
+			jpeg: { quality: 82 },
+			jpg: { quality: 82 },
+			png: { quality: 85 },
+			logStats: true,
+			test: /\.(jpe?g|png|gif|tiff|webp|avif)$/i, // Excluir SVG (evita dependencia svgo)
+		}),
 		addTransformIndexHtml
-	],
+	].filter(Boolean),
 	server: {
 		cors: true,
 		headers: {

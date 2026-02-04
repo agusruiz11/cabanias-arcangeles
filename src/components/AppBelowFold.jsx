@@ -15,8 +15,8 @@ function AppBelowFold() {
   return (
     <>
       <Environment />
-      <Location />
       <CabinGallery />
+      <Location />
       <Services />
       <AboutSection />
       {/* <Testimonials /> */}

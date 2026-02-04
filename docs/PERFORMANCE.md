@@ -31,9 +31,17 @@ Resumen de cambios realizados para mejorar LCP, INP, CLS y reducir JS/CSS inicia
 - **CLS**: `aspect-ratio` y tamaños mínimos evitan desplazamientos al cargar.
 - **Peso inicial**: lazy loading reduce imágenes descargadas en la primera carga.
 
+### Optimizaciones adicionales aplicadas (feb 2025)
+
+- **vite-plugin-image-optimizer**: Compresión JPEG (quality 82) y PNG (quality 85) en build. Reduce ~77% el peso total de imágenes.
+- **Hero responsive**: `<picture>` con `bg-mobile.jpg` para móviles y `hero.jpg` para desktop. Menor peso en 4G.
+- **Gallery extras**: Imágenes de "Entorno y más" cargadas solo al seleccionar esa pestaña (lazy con `import.meta.glob` eager: false).
+- **Environment carrusel**: Preload solo de la imagen actual y la siguiente (no las 3 de golpe).
+- **Location mapa**: OptimizedImage con lazy loading.
+- **Preconnect**: `fonts.googleapis.com` y `fonts.gstatic.com` en index.html para reducir latencia de fuentes.
+
 ### Próximos pasos (opcionales)
 
-- **WebP/AVIF**: Añadir un paso de build (p. ej. `vite-plugin-image-optimizer` o script con Sharp) para generar versiones WebP/AVIF y usar `<picture>` con fallback. Sin frameworks extra por ahora.
 - **srcset/sizes**: Cuando existan varios tamaños (p. ej. 400w, 800w, 1200w), pasar `srcSet` y `sizes` a `OptimizedImage` para servir el tamaño adecuado por viewport.
 
 ---

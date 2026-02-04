@@ -44,7 +44,7 @@ const Amenities = () => {
           <h2 className="font-display text-4xl md:text-5xl font-bold text-forest mb-6">
             Comodidades
           </h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-slate-600 max-w-2xl mx-auto">
             Todo lo que necesitas para una estadía perfecta en la Patagonia
           </p>
         </motion.div>
@@ -65,8 +65,8 @@ const Amenities = () => {
                   <div className="w-16 h-16 bg-gradient-to-br from-forest to-lake rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                     <IconComponent className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="font-semibold text-lg text-forest mb-2">{amenity.title}</h3>
-                  <p className="text-sm text-slate-600">{amenity.description}</p>
+                  <h3 className="font-semibold text-xl text-forest mb-2">{amenity.title}</h3>
+                  <p className="text-base text-slate-600">{amenity.description}</p>
                 </div>
               </motion.div>
             );

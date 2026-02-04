@@ -52,3 +52,5 @@ public_html/api/cache/*.json
 
 # Credenciales PHP (nunca subir al repo)
 public_html/api/config.php
+.vercel
+.env*.local

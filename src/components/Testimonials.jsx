@@ -29,7 +29,7 @@ const Testimonials = () => {
           
           <div className="flex flex-col items-center">
             <div className="w-16 h-1 bg-brand-beige-light mb-4"></div>
-            <p className="text-lg text-brand-beige-pale">
+            <p className="text-lg md:text-xl text-brand-beige-pale">
               La experiencia perfecta te espera en Cabañas Arcángeles
             </p>
           </div>

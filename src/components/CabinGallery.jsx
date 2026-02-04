@@ -1,172 +1,179 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Bed, Sofa, Bath, Utensils, Flame, LayoutGrid, Layers } from 'lucide-react';
 import OptimizedImage from '@/components/OptimizedImage';
-import cabania1 from '../assets/imgs/cabania1.jpg';
-import sala from '../assets/imgs/sala.jpg';
-import dormitorio1 from '../assets/imgs/dormitorio1.jpg';
-import dormitorio2 from '../assets/imgs/dormitorio2.jpg';
-import cocina from '../assets/imgs/cocina.jpg';
-import banio from '../assets/imgs/banio.jpg';
-import cabania2 from '../assets/imgs/cabania2.jpg';
-import sala2 from '../assets/imgs/sala2.jpg';
-import dormitorio3 from '../assets/imgs/dormitorio3.jpg';
-import dormitorio4 from '../assets/imgs/dormitorio4.jpg';
-import banio2 from '../assets/imgs/banio2.jpg';
-import patio from '../assets/imgs/patio.jpg';
+// Imágenes de las cabañas
+// 4 personas
+import habitacion1 from '../assets/imgs/cabanias/4/habitacion1.jpg';
+import habitacion2 from '../assets/imgs/cabanias/4/habitacion2.jpg';
+import cama from '../assets/imgs/cabanias/4/cama.jpg';
+import banio from '../assets/imgs/cabanias/4/banio.jpg';
+import cocina from '../assets/imgs/cabanias/4/cocina.jpg';
+import vista from '../assets/imgs/cabanias/4/ventana.jpg';
+import parrilla from '../assets/imgs/cabanias/4/parrilla.jpg';
+// 6 personas
+import habitacion6 from '../assets/imgs/cabanias/6/habitacion.jpg';
+import habitacionPrincipal6 from '../assets/imgs/cabanias/6/habPrincipal.jpg';
+import habitacionSecundaria6 from '../assets/imgs/cabanias/6/habSecundaria.jpg';
+import comedor from '../assets/imgs/cabanias/6/comedor.jpg';
+import cocina6 from '../assets/imgs/cabanias/6/cocina.jpg';
+import banio6 from '../assets/imgs/cabanias/6/banio.jpg';
+import living6 from '../assets/imgs/cabanias/6/living.jpg';
+// Loft - 8 personas
+import imgPrincial from '../assets/imgs/cabanias/8/principal.jpg';  
+import habitacionLoft from '../assets/imgs/cabanias/8/habitacion.jpg';
+import livingLoft from '../assets/imgs/cabanias/8/living.jpg';
+import cocinaLoft from '../assets/imgs/cabanias/8/cocina.jpg';
+import banioLoft from '../assets/imgs/cabanias/8/banio.jpg';
+import patioLoft from '../assets/imgs/cabanias/8/patio.jpg';
+import divanLoft from '../assets/imgs/cabanias/8/divan_arriba.jpg';
 
 const CabinGallery = () => {
-  const [activeTab, setActiveTab] = useState('4-personas');
+  const [activeTab, setActiveTab] = useState('6-personas');
 
   const cabinTypes = {
     '4-personas': {
       title: 'Cabañas para 4 Personas',
       description: 'Ideal para familias pequeñas o parejas que buscan intimidad',
-      capacity: '4 personas',
       size: '65 m²',
-      features: ['2 dormitorios', '1 baño completo', 'Cocina equipada', 'Deck privado', 'Chimenea', 'Vista al lago'],
+      features: [
+        { text: 'Dormitorio con cama matrimonial', icon: Bed },
+        { text: 'Living-Comedor con cocina integrada y Sofa Cama', icon: Sofa },
+        { text: 'Baño completo', icon: Bath },
+        { text: 'Cocina equipada', icon: Utensils },
+        { text: 'Sector de Parrillas compartidas', icon: Flame }
+      ],
+      cardImage: {
+        title: "Habitación Principal",
+        description: "Dormitorio con cama matrimonial",
+        src: cama
+      },
       images: [
         {
-          title: "Exterior Cabaña 4 personas",
-          description: "Vista frontal con deck y montañas de fondo",
-          src: cabania1
+          title: "Habitación Principal",
+          description: "Dormitorio con cama matrimonial",
+          src: habitacion1
         },
         {
-          title: "Sala de Estar",
-          description: "Espacio acogedor con chimenea y ventanales",
-          src: sala
+          title: "Sala de estar",
+          description: "Living-Comedor con cocina integrada y Sofa Cama",
+          src: habitacion2
         },
         {
-          title: "Dormitorio Principal",
-          description: "Cama matrimonial con vista panorámica",
-          src: dormitorio1
-        },
-        {
-          title: "Segundo Dormitorio",
-          description: "Dormitorio con dos camas individuales",
-          src: dormitorio2
-        },
-        {
-          title: "Cocina Equipada",
-          description: "Cocina completa con electrodomésticos modernos",
+          title: "Cocina",
+          description: "Cocina equipada",
           src: cocina
         },
         {
-          title: "Baño Completo",
-          description: "Baño moderno con ducha escocesa",
+          title: "Baño",
+          description: "Baño completo",
           src: banio
+        },
+        {
+          title: "Parrilla",
+          description: "Sector de Parrillas compartidas",
+          src: parrilla
         }
       ]
     },
     '6-personas': {
       title: 'Cabaña para 6 Personas',
       description: 'Perfecta para familias grandes o grupos de amigos',
-      capacity: '6 personas',
       size: '95 m²',
-      features: ['3 dormitorios', '2 baños completos', 'Cocina amplia', 'Deck grande', 'Chimenea', 'Vista panorámica', 'Parrilla'],
+      features: [
+        { text: 'Dormitorio en suite con cama matrimonial', icon: Bed },
+        { text: 'Dormitorio con 2 camas individuales', icon: Bed },
+        { text: 'Living-Comedor con cocina integrada y Sofa Cama', icon: Sofa },
+        { text: 'Baño completo', icon: Bath },
+        { text: 'Cocina equipada', icon: Utensils },
+        { text: 'Sector de Parrillas compartidas', icon: Flame }
+      ],
+      cardImage: {
+        title: "Habitación Principal",
+        description: "Cama matrimonial con vista panorámica",
+        src: habitacion6
+      },
       images: [
         {
-          title: "Exterior Cabaña 6 personas",
-          description: "Cabaña amplia con deck extenso y vista al lago",
-          src: cabania2
+          title: "Habitación Principal (Suite)",
+          description: "Dormitorio en suite con cama matrimonial",
+          src: habitacionPrincipal6
         },
         {
-          title: "Sala de Estar Amplia",
-          description: "Espacio generoso con chimenea y sofás cómodos",
-          src: sala2
+          title: "Habitación Secundaria",
+          description: "Dormitorio con 2 camas individuales",
+          src: habitacionSecundaria6
         },
         {
-          title: "Dormitorio Principal",
-          description: "Suite principal con baño privado",
-          src: dormitorio1
+          title: "Living-Comedor",
+          description: "Living-Comedor con cocina integrada y Sofa Cama",
+          src: comedor
         },
         {
-          title: "Segundo Dormitorio",
-          description: "Dormitorio con cama matrimonial",
-          src: dormitorio2
+          title: "Cocina",
+          description: "Cocina equipada",
+          src: cocina6
         },
         {
-          title: "Tercer Dormitorio",
-          description: "Dormitorio con literas para niños",
-          src: dormitorio3
+          title: "Baño",
+          description: "Baño completo",
+          src: banio6
         },
         {
-          title: "Cocina Amplia",
-          description: "Cocina espaciosa con isla central",
-          src: cocina
-        },
-        {
-          title: "Baño Principal",
-          description: "Baño principal con bañera",
-          src: banio
-        },
-        {
-          title: "Segundo Baño",
-          description: "Baño secundario con ducha",
-          src: banio2
-        },
-        {
-          title: "Deck y Parrilla",
-          description: "Terraza amplia con parrilla y vista panorámica",
-          src: patio
+          title: "Sector de Parrillas",
+          description: "Sector de Parrillas compartidas",
+          src: living6
         }
       ]
     },
     '8-personas': {
       title: 'Loft para 8 Personas',
-      description: 'Ideal para grupos grandes, familias extensas o reuniones con amigos',
-      capacity: '8 personas',
+      description: 'Loft de espacios integrados ideal para grupos grandes o familias numerosas.',
       size: '120 m²',
-      features: ['4 dormitorios', '3 baños completos', 'Cocina amplia', 'Deck grande', 'Chimenea', 'Vista panorámica', 'Parrilla'],
+      features: [
+        { text: 'Loft de espacios integrados', icon: LayoutGrid },
+        { text: 'Planta alta con cama matrimonial y sofá cama', icon: Layers },
+        { text: 'Living con dos sofás cama', icon: Sofa },
+        { text: 'Comedor', icon: Sofa },
+        { text: 'Cocina equipada', icon: Utensils },
+        { text: 'Dos baños', icon: Bath },
+        { text: 'Sector de parrillas compartidas', icon: Flame }
+      ],
+      cardImage: {
+        title: "Espacios integrados",
+        description: "Vista general del loft y su living principal",
+        src: imgPrincial
+      },
       images: [
         {
-          title: "Exterior Cabaña 8 personas",
-          description: "Cabaña amplia con deck extenso y vista al lago",
-          src: cabania2
+          title: "Planta Alta",
+          description: "Planta alta con cama matrimonial y sofá cama",
+          src: habitacionLoft
         },
         {
-          title: "Sala de Estar Amplia",
-          description: "Espacio generoso con chimenea y sofás cómodos",
-          src: sala2
+          title: "Living",
+          description: "Living con dos sofás cama",
+          src: livingLoft
         },
         {
-          title: "Dormitorio Principal",
-          description: "Suite principal con baño privado",
-          src: dormitorio1
+          title: "Comedor",
+          description: "Comedor espacioso integrado al living",
+          src: divanLoft
         },
         {
-          title: "Segundo Dormitorio",
-          description: "Dormitorio con cama matrimonial",
-          src: dormitorio2
+          title: "Cocina",
+          description: "Cocina equipada",
+          src: cocinaLoft
         },
         {
-          title: "Tercer Dormitorio",
-          description: "Dormitorio con literas",
-          src: dormitorio3
+          title: "Baños",
+          description: "Dos baños completos",
+          src: banioLoft
         },
         {
-          title: "Cuarto Dormitorio",
-          description: "Dormitorio adicional para grupos grandes",
-          src: dormitorio4
-        },
-        {
-          title: "Cocina Amplia",
-          description: "Cocina espaciosa con isla central",
-          src: cocina
-        },
-        {
-          title: "Baño Principal",
-          description: "Baño principal con bañera",
-          src: banio
-        },
-        {
-          title: "Segundo Baño",
-          description: "Baño secundario con ducha",
-          src: banio2
-        },
-        {
-          title: "Deck y Parrilla",
-          description: "Terraza amplia con parrilla y vista panorámica",
-          src: patio
+          title: "Parrilla",
+          description: "Sector de parrillas compartidas",
+          src: patioLoft
         }
       ]
     }
@@ -187,10 +194,6 @@ const CabinGallery = () => {
           <h2 className="font-display text-4xl md:text-5xl font-bold text-forest mb-6">
             Nuestras Cabañas
           </h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Elige la cabaña perfecta para tu estadía en la naturaleza patagónica <br />
-            Contamos con cabañas para 4, 6 y 8 personas.
-          </p>
         </motion.div>
 
         {/* Pestañas de selección */}
@@ -200,7 +203,7 @@ const CabinGallery = () => {
               <button
                 key={tabKey}
                 onClick={() => setActiveTab(tabKey)}
-                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                className={`px-6 py-3 rounded-full font-medium text-base md:text-lg transition-all duration-300 ${
                   activeTab === tabKey
                     ? 'bg-brand-dark-green text-white shadow-lg transform scale-105'
                     : 'text-brand-dark-brown hover:text-brand-dark-green hover:bg-brand-beige-pale'
@@ -222,47 +225,46 @@ const CabinGallery = () => {
         >
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center min-w-0">
             <div className="min-w-0">
-              <h3 className="font-display text-3xl font-bold text-forest mb-4">
+              <h3 className="font-display text-3xl md:text-4xl font-bold text-forest mb-5">
                 {currentCabin.title}
               </h3>
-              <p className="text-lg text-slate-600 mb-6">
-                {currentCabin.description}
-              </p>
-              
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="bg-white rounded-lg p-4 text-center shadow-sm">
-                  <div className="text-2xl font-bold text-forest">{currentCabin.capacity}</div>
-                  <div className="text-sm text-brand-dark-brown">Capacidad</div>
-                </div>
-                <div className="bg-white rounded-lg p-4 text-center shadow-sm">
-                  <div className="text-2xl font-bold text-forest">{currentCabin.size}</div>
-                  <div className="text-sm text-brand-dark-brown">Superficie</div>
-                </div>
-              </div>
 
               <div>
-                <h4 className="font-semibold text-forest mb-3">Características:</h4>
-                <div className="grid grid-cols-2 gap-2">
-                  {currentCabin.features.map((feature, index) => (
-                    <div key={index} className="flex items-center text-sm text-brand-dark-brown">
-                      <div className="w-2 h-2 bg-brand-olive-green rounded-full mr-2"></div>
-                      {feature}
-                    </div>
-                  ))}
+                <h4 className="font-semibold text-lg text-forest mb-4">Características</h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {currentCabin.features.map((feature, index) => {
+                    const IconComponent = feature.icon;
+                    return (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: index * 0.05 }}
+                        className="group flex items-center gap-3 p-3 sm:p-4 bg-white/80 hover:bg-white rounded-xl border border-brand-olive-green/20 shadow-sm hover:shadow-md hover:border-brand-olive-green/40 transition-all duration-300"
+                      >
+                        <div className="flex-shrink-0 text-burnt-orange flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                          <IconComponent className="w-7 h-7 sm:w-8 sm:h-8" strokeWidth={2} />
+                        </div>
+                        <span className="text-sm sm:text-base text-brand-dark-brown font-medium leading-snug">
+                          {feature.text}
+                        </span>
+                      </motion.div>
+                    );
+                  })}
                 </div>
               </div>
             </div>
             
             <div className="relative w-full min-w-0 aspect-[4/3] min-h-[16rem] md:min-h-[20rem] rounded-xl overflow-hidden">
               <OptimizedImage
-                src={currentCabin.images[0].src}
-                alt={currentCabin.images[0].title}
+                src={currentCabin.cardImage.src}
+                alt={currentCabin.cardImage.title}
                 aspectRatio="4/3"
                 className="w-full h-full max-w-full object-cover rounded-xl shadow-lg"
               />
               <div className="absolute bottom-4 left-4 bg-black/60 text-white p-3 rounded-lg">
-                <h4 className="font-semibold">{currentCabin.images[0].title}</h4>
-                <p className="text-sm text-gray-200">{currentCabin.images[0].description}</p>
+                <h4 className="font-semibold text-lg">{currentCabin.cardImage.title}</h4>
+                <p className="text-base text-gray-200">{currentCabin.cardImage.description}</p>
               </div>
             </div>
           </div>
@@ -275,7 +277,7 @@ const CabinGallery = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h3 className="text-2xl font-bold text-forest mb-8 text-center">
+          <h3 className="text-2xl md:text-3xl font-bold text-forest mb-8 text-center">
             Galería de Fotos - {currentCabin.title}
           </h3>
           
@@ -298,7 +300,7 @@ const CabinGallery = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="absolute bottom-4 left-4 text-white">
                       <h4 className="font-semibold text-lg">{image.title}</h4>
-                      <p className="text-sm text-gray-200">{image.description}</p>
+                      <p className="text-base text-gray-200">{image.description}</p>
                     </div>
                   </div>
                 </div>

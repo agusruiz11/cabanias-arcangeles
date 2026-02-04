@@ -22,14 +22,14 @@ const MapIframe = ({
         onLoad={() => console.log('El iframe ha cargado')}
       />
       <div className="absolute bottom-2 right-2 bg-white px-2 py-1 rounded text-xs text-gray-600 shadow-sm">
-        <a 
+        {/* <a 
           href={src.replace('/embed', '')} 
           target="_blank" 
           rel="noopener noreferrer" 
           className="text-blue-600 hover:underline"
         >
-          Ver mapa más grande
-        </a>
+          Google Maps
+        </a> */}
       </div>
     </div>
   );

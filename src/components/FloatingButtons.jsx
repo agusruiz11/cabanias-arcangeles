@@ -14,7 +14,7 @@ const WhatsAppIcon = () => (
 const FloatingButtons = () => {
   const handleWhatsApp = () => {
     const phoneNumber = '5491162092643';
-    const message = encodeURIComponent('Hola! Me interesa reservar en Cabañas Arcángeles. ¿Podrían darme más información?');
+    const message = encodeURIComponent('Hola! Quería consultar por disponibilidad y más info para reservar en Cabañas Arcángeles');
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   };
 

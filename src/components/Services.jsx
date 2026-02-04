@@ -131,7 +131,7 @@ const Services = () => {
                 <div className="mb-3 flex items-center justify-center h-12">
                   <IconComponent className="w-8 h-8 md:w-10 md:h-10 text-black" strokeWidth={1.5} />
                 </div>
-                <p className="text-xs sm:text-sm md:text-base text-gray-800 font-medium leading-tight px-1">
+                <p className="text-sm sm:text-base md:text-lg text-gray-800 font-medium leading-tight px-1">
                   {service.text}
                 </p>
               </motion.div>

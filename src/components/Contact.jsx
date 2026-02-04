@@ -33,7 +33,7 @@ const FinalCTA = () => {
           <h2 className="font-display text-4xl md:text-5xl font-bold text-forest mb-6">
             ¿Listo para tu Escape Patagónico?
           </h2>
-          <p className="text-xl text-slate-600 mb-12 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-slate-600 mb-12 max-w-2xl mx-auto">
             Reserva ahora y vive una experiencia inolvidable en nuestras cabañas. 
             Te esperamos para crear recuerdos que durarán toda la vida.
           </p>
@@ -45,7 +45,7 @@ const FinalCTA = () => {
               style={{ whiteSpace: 'nowrap' }}
             >
               <MessageCircle className="w-5 h-5 flex-shrink-0" />
-              <span className="font-display text-sm sm:text-base">
+              <span className="font-display text-base md:text-lg">
                 WhatsApp
               </span>
             </Button>
@@ -57,8 +57,8 @@ const FinalCTA = () => {
                 style={{ whiteSpace: 'nowrap' }}
               >
                 <Phone className="w-5 h-5 flex-shrink-0" />
-                <span className="font-display text-sm sm:text-base">
-                  +54 9 11 6209-2643
+<span className="font-display text-base md:text-lg">
+                +54 9 11 6209-2643
                 </span>
               </Button>
               
@@ -68,7 +68,7 @@ const FinalCTA = () => {
                 style={{ whiteSpace: 'nowrap' }}
               >
                 <Mail className="w-5 h-5 flex-shrink-0" />
-                <span className="text-sm sm:text-base">
+                <span className="text-base md:text-lg">
                   info@cabañasarcangeles.com
                 </span>
               </Button>
@@ -83,9 +83,9 @@ const FinalCTA = () => {
             viewport={{ once: true }}
           >
             <p className="font-medium text-brand-dark-brown">
-              <span className="font-bold text-lg text-brand-dark-green">¡Oferta especial!</span> 
+              <span className="font-bold text-xl text-brand-dark-green">¡Oferta especial!</span> 
               <br className="sm:hidden" />
-              <span className="sm:ml-2 font-italic">Reserva con 30 días de anticipación y obtén un 15% de descuento en tu estadía.</span>
+              <span className="sm:ml-2 font-italic text-lg">Reserva con 30 días de anticipación y obtén un 15% de descuento en tu estadía.</span>
             </p>
           </motion.div>
         </motion.div>
