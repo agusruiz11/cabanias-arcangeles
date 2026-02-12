@@ -118,10 +118,22 @@ El PHP devuelve siempre este formato (o error con status 500 y JSON `{ error, ht
 
 ---
 
-## 5. Archivos involucrados
+## 5. Error 403: "This API method requires billing to be enabled"
+
+Si en la consola del navegador ves **403 (Forbidden)** o el mensaje de Google diciendo que la facturación debe estar habilitada:
+
+1. Entrá a [Google Cloud Console](https://console.cloud.google.com/) y seleccioná el proyecto que usa la API Key (el ID del proyecto suele aparecer en el mensaje de error, ej. `#762820170520`).
+2. Andá a **Facturación** (Billing) y **vinculá una cuenta de facturación** al proyecto, o habilitá la facturación si aún no está activa.
+3. Enlace directo (reemplazá `TU_PROJECT_ID` por el ID de tu proyecto):  
+   `https://console.developers.google.com/billing/enable?project=TU_PROJECT_ID`
+4. Después de habilitar la facturación, esperá unos minutos y probá de nuevo. Las reseñas de Google Places (New) requieren un proyecto con facturación activa; Google ofrece créditos gratuitos para empezar.
+
+---
+
+## 6. Archivos involucrados
 
 | Archivo | Rol |
-|--------|-----|
+|---------|-----|
 | `public_html/api/google-reviews.php` | Endpoint: llama a Places API, cachea, normaliza JSON. No contiene credenciales. |
 | `public_html/api/config.php` | **No está en Git.** Lo creás en el servidor copiando `config.example.php`; acá van `$API_KEY` y `$PLACE_ID`. |
 | `public_html/api/config.example.php` | Plantilla para crear `config.php` (sí se sube al repo, sin valores reales). |

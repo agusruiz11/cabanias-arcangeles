@@ -4,11 +4,13 @@ import OptimizedImage from '@/components/OptimizedImage';
 import environment from '../assets/imgs/environment.jpg';
 import environment2 from '../assets/imgs/bg/hero3.jpg';
 import environment3 from '../assets/imgs/Gutiérrez_Lake.jpg';
+import environment4 from '../assets/imgs/parrillas.jpg';
 
 const CAROUSEL_IMAGES = [
   { src: environment, alt: 'Entrada a Cabañas Arcángeles'},
-  { src: environment2, alt: 'Cabañas Arcángeles' }, // Reemplazar con environment2
-  { src: environment3, alt: 'Lago Gutiérrez' }, // Reemplazar con environment3
+  { src: environment2, alt: 'Cabañas Arcángeles' },
+  { src: environment3, alt: 'Lago Gutiérrez' },
+  { src: environment4, alt: 'Parrilla' },
 ];
 
 const CAROUSEL_INTERVAL_MS = 4500;
@@ -48,21 +50,22 @@ const Environment = () => {
   const currentLoaded = loadedImages.has(currentIndex);
 
   return (
-    <section className="py-20 bg-brand-beige-pale">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="py-12 md:py-20 bg-brand-beige-pale">
+      <div className="w-full px-4 md:px-0">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
+            className="text-center md:text-left"
           >
             <h2 className="font-display text-4xl md:text-5xl font-bold text-forest mb-6">
               La Posada
             </h2>
-            <div className="space-y-6 text-xl text-slate-700 leading-relaxed">
+            <div className="space-y-6 text-lg md:text-xl text-slate-700 leading-relaxed max-w-prose md:max-w-none mx-auto md:mx-0">
               <p>
-              Cabañas Arcángeles es un complejo de cabañas, ubicado en Villa Los Coihues, a 200 metrosdel lago Gutiérrez.
+              Cabañas Arcángeles es un complejo de cabañas, ubicado en Villa Los Coihues, a 200 metros del lago Gutiérrez.
               </p>
               <p>
               Allí, lo esperan cabañas de 4, 6 y hasta 8 personas, construídas sobre la ladera del cerro San Martín, y en la armonía del entorno de un bosque nativo de cipreses, ñires y maitenes.

@@ -126,8 +126,8 @@ const Gallery = () => {
         <meta name="description" content="Galería de fotos de nuestras cabañas en Bariloche. Descubre los espacios de cabañas para 4, 6 y 8 personas, el entorno y las vistas al Lago Gutiérrez." />
       </Helmet>
       <Header />
-      <main className="pt-24 pb-16">
-        <div className="max-w-7xl mx-auto px-4">
+      <main className="pt-24 pb-16 w-full md:px-5">
+        <div className="w-full mx-auto px-4 md:px-0">
           {/* Breadcrumb / Volver */}
           <div className="mb-8">
             <Link

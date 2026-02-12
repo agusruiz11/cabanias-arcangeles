@@ -199,3 +199,18 @@ body {
     object-fit: cover;
   }
 }
+
+/* Bloquear scroll del body solo cuando el menú mobile está abierto */
+body.mobile-menu-open {
+  overflow: hidden;
+  touch-action: none;
+}
+
+/* Desktop: header con fondo cuando hace scroll (Header usa data-scrolled) */
+@media (min-width: 768px) {
+  header[data-scrolled="true"] {
+    background-color: rgba(249, 243, 231, 0.95);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+  }
+}

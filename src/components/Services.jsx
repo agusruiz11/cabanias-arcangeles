@@ -28,82 +28,34 @@ import {
 const Services = () => {
   const services = [
     {
-      icon: CigaretteOff,
-      text: "Departamentos para no fumadores"
-    },
-    {
       icon: Wifi,
-      text: "Internet WiFi"
+      text: "Internet WiFi Fibra Optica"
     },
     {
       icon: ParkingCircle,
-      text: "Estacionamiento cubierto"
+      text: "Estacionamiento privado"
     },
     {
       icon: Tv,
-      text: "Televisión pantalla plana"
+      text: "Televisión por cable"
     },
     {
       icon: UtensilsCrossed,
-      text: "Parrillas"
-    },
-    {
-      icon: Dumbbell,
-      text: "Gimnasio"
-    },
-    {
-      icon: KayakIcon,
-      text: "Kayak"
-    },
-    {
-      icon: Flame,
-      text: "Estufas"
-    },
-    {
-      icon: Waves,
-      text: "Acceso al lago"
+      text: "Espacio común con parrillas"
     },
     {
       icon: Lock,
-      text: "Caja de seguridad"
-    },
-    {
-      icon: Wind,
-      text: "Secador de pelo"
-    },
-    {
-      icon: Sun,
-      text: "Reposeras"
-    },
-    {
-      icon: Grid3x3,
-      text: "Aberturas con sistema DVH"
-    },
-    {
-      icon: ChefHat,
-      text: "Cocina equipada"
-    },
-    {
-      icon: Refrigerator,
-      text: "Heladera"
+      text: "Alarma"
     },
     {
       icon: BedDouble,
-      text: "Ropa de cama y toallas"
-    },
-    {
-      icon: Luggage,
-      text: "Depósito para equipajes"
-    },
-    {
-      icon: Coffee,
-      text: "Cafetera"
+      text: "Provisión de ropa blanca"
     }
   ];
 
   return (
     <section id="services" className="py-20 bg-gray-100">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="w-full px-4 md:px-0">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -116,7 +68,7 @@ const Services = () => {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-9 gap-6 md:gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 md:gap-8">
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (

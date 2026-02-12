@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Navigation, Clock, Car } from 'lucide-react';
+import { MapPin, Navigation, Clock, Car, Footprints, Waves, UtensilsCrossed, Map } from 'lucide-react';
 import MapIframe from './Iframe';
 import OptimizedImage from '@/components/OptimizedImage';
 import map from '../assets/imgs/maps/mapa_01.png';
@@ -23,7 +23,7 @@ const getMapSrc = () => {
 const Location = () => {
   return (
     <section id="location" className="py-20 bg-brand-beige-pale">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="w-full px-4 md:px-0">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -64,7 +64,7 @@ const Location = () => {
                         Saliendo desde Bariloche por <span className="font-semibold text-forest">Av. Bustillo</span> o <span className="font-semibold text-forest">Av. de los Pioneros</span>, se recorren aproximadamente <span className="font-semibold text-forest">8,5 km</span> hasta el cruce con la <span className="font-semibold text-forest">Ruta Provincial N.º 82</span>.
                       </p>
                       <p>
-                        Al doblar allí hacia la izquierda, se toma dicha ruta y, luego de <span className="font-semibold text-forest">5 km</span>, se visualizará el supermercado <span className="font-semibold text-forest">“Todo”</span>.
+                        Al doblar allí hacia la izquierda, se toma dicha ruta y, luego de <span className="font-semibold text-forest">5 km</span>, se visualizará el supermercado <span className="font-semibold text-forest">“Todo”</span> Frente al mismo se encuentra el ingreso a <span className="font-semibold text-forest">Villa Los Coihues</span>.
                       </p>
                       <p>
                         Una vez ingresado, se recorren 300 metros de camino consolidado hasta cruzar el puente sobre el arroyo Gutiérrez. Desde allí, se continúa derecho tres cuadras por la calle Bosques Petrificados.
@@ -100,43 +100,74 @@ const Location = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6"
         >
-          <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg border border-gray-100 text-center">
-            <div className="w-12 h-12 bg-forest rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg border border-gray-100">
+            <div className="w-12 h-12 bg-forest rounded-full flex items-center justify-center mb-4">
               <MapPin className="w-6 h-6 text-white" />
             </div>
-            <h3 className="font-semibold text-xl text-forest mb-2">Dirección</h3>
-            <p className="text-slate-600 text-base">
-              Calle Parque Nacional Arrayanes<br />
-              Villa Los Coihues, Lago Gutiérrez<br />
-              San Carlos de Bariloche, Río Negro
-            </p>
-          </div>
-
-          <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg border border-gray-100 text-center">
-            <div className="w-12 h-12 bg-brand-medium-blue rounded-full flex items-center justify-center mx-auto mb-4">
-              <Navigation className="w-6 h-6 text-white" />
-            </div>
-            <h3 className="font-semibold text-xl text-forest mb-2">Distancias</h3>
-            <ul className="text-slate-600 text-base space-y-1">
-              <li>• Centro de Bariloche: 14 km</li>
-              <li>• Cerro Catedral: 5 km</li>
-              <li>• Aeropuerto: 25 km</li>
-              <li>• Villa La Angostura: 60 km</li>
+            <h3 className="font-semibold text-lg text-forest mb-3">Accesos principales</h3>
+            <ul className="text-slate-600 text-sm space-y-1.5">
+              <li>• Aeropuerto Internacional de Bariloche - 30 min</li>
+              <li>•  Centro Cívico - 25 min</li>
+              <li>• Cerro Catedral - 15 min</li>
+              <li>• Cerro Otto - 20 min</li>
+              <li>• Cerro Campanario - 20 min</li>
             </ul>
           </div>
 
-          <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg border border-gray-100 text-center">
-            <div className="w-12 h-12 bg-gradient-to-br from-brand-dark-green to-brand-medium-blue rounded-full flex items-center justify-center mx-auto mb-4">
-              <Clock className="w-6 h-6 text-white" />
+          <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg border border-gray-100">
+            <div className="w-12 h-12 bg-forest rounded-full flex items-center justify-center mb-4">
+              <Footprints className="w-6 h-6 text-white" />
             </div>
-            <h3 className="font-semibold text-xl text-forest mb-2">Tiempos de Viaje</h3>
-            <ul className="text-slate-600 text-base space-y-1">
-              <li>• Al centro: 20 minutos</li>
-              <li>• A Cerro Catedral: 10 minutos</li>
-              <li>• Al aeropuerto: 30 minutos</li>
-              <li>• A Villa La Angostura: 1 hora</li>
+            <h3 className="font-semibold text-lg text-forest mb-3">Senderos y miradores de la zona</h3>
+            <ul className="text-slate-600 text-sm space-y-1.5">
+              <li>• Cascada de los Duendes - a 5 min del sendero</li>
+              <li>• Mirador del Lago Gutiérrez - a 5 min del sendero</li>
+              <li>• Playa Muñoz - a 5 min del sendero</li>
+              <li>• Refugio Frey - a 5 min del sendero</li>
+            </ul>
+          </div>
+
+          <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg border border-gray-100">
+            <div className="w-12 h-12 bg-brand-medium-blue rounded-full flex items-center justify-center mb-4">
+              <Waves className="w-6 h-6 text-white" />
+            </div>
+            <h3 className="font-semibold text-lg text-forest mb-3">Lagos y playas</h3>
+            <ul className="text-slate-600 text-sm space-y-1.5">
+              <li>• Playa Lago Gutiérrez - 200 m</li>
+              <li>• Playa Bonita (Lago Nahuel Huapi) - 10 min</li>
+              <li>• Bahía Serena (Lago Nahuel Huapi) - 15 min</li>
+              <li>• Playa del Viento (Lago Moreno) - 15 min</li>
+              <li>• Lago Mascardi - 30 min</li>
+            </ul>
+          </div>
+
+          <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg border border-gray-100">
+            <div className="w-12 h-12 bg-brand-medium-blue rounded-full flex items-center justify-center mb-4">
+              <UtensilsCrossed className="w-6 h-6 text-white" />
+            </div>
+            <h3 className="font-semibold text-lg text-forest mb-3">Gastronomía y experiencias</h3>
+            <ul className="text-slate-600 text-sm space-y-1.5">
+              <li>• Cervecería Kunstmann - 10 min</li>
+              <li>• Cervecería Berlina - 15 min</li>
+              <li>• Fábrica Cervecería Wesley - 20 min</li>
+              <li>• Colonia Suiza - 30 min</li>
+              <li>• Cervecería Patagonia - 35 min</li>
+            </ul>
+          </div>
+
+          <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg border border-gray-100">
+            <div className="w-12 h-12 bg-gradient-to-br from-brand-dark-green to-brand-medium-blue rounded-full flex items-center justify-center mb-4">
+              <Map className="w-6 h-6 text-white" />
+            </div>
+            <h3 className="font-semibold text-lg text-forest mb-3">Actividades de día completo</h3>
+            <ul className="text-slate-600 text-sm space-y-1.5">
+              <li>• Circuito Chico (inicio del recorrido) - 25 min</li>
+              <li>• Puerto Blest e Isla Victoria (excursión lacustre, salida desde Puerto Pañuelo) - 35 min</li>
+              <li>• Cerro Tronador / Pampa Linda (inicio de camino de ripio) - 30 min</li>
+              <li>• Villa La Angostura - 1 h 30 min</li>
+              <li>• Villa Traful - 2 h</li>
             </ul>
           </div>
         </motion.div>

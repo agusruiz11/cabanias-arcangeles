@@ -66,7 +66,7 @@ const CabinGallery = () => {
         },
         {
           title: "Baño",
-          description: "Baño completo",
+          description: "",
           src: banio
         },
         {
@@ -89,8 +89,8 @@ const CabinGallery = () => {
         { text: 'Sector de Parrillas compartidas', icon: Flame }
       ],
       cardImage: {
-        title: "Habitación Principal",
-        description: "Cama matrimonial con vista panorámica",
+        title: "Habitación Principal (Suite)",
+        description: "Dormitorio en suite con cama matrimonial",
         src: habitacion6
       },
       images: [
@@ -106,7 +106,7 @@ const CabinGallery = () => {
         },
         {
           title: "Living-Comedor",
-          description: "Living-Comedor con cocina integrada y Sofa Cama",
+          description: "Living-Comedor con cocina integrada",
           src: comedor
         },
         {
@@ -116,12 +116,12 @@ const CabinGallery = () => {
         },
         {
           title: "Baño",
-          description: "Baño completo",
+          description: "",
           src: banio6
         },
         {
-          title: "Sector de Parrillas",
-          description: "Sector de Parrillas compartidas",
+          title: "Living",
+          description: "Living con TV y Sofa Cama",
           src: living6
         }
       ]
@@ -146,18 +146,18 @@ const CabinGallery = () => {
       },
       images: [
         {
-          title: "Planta Alta",
-          description: "Planta alta con cama matrimonial y sofá cama",
+          title: "Habitación Principal",
+          description: "Dormitorio principal con cama matrimonial",
           src: habitacionLoft
         },
         {
-          title: "Living",
-          description: "Living con dos sofás cama",
+          title: "Living-Comedor",
+          description: "Living-Comedor con cocina integrada",
           src: livingLoft
         },
         {
-          title: "Comedor",
-          description: "Comedor espacioso integrado al living",
+          title: "Planta alta",
+          description: "Planta alta con sofá cama",
           src: divanLoft
         },
         {
@@ -166,8 +166,8 @@ const CabinGallery = () => {
           src: cocinaLoft
         },
         {
-          title: "Baños",
-          description: "Dos baños completos",
+          title: "Baño",
+          description: "",
           src: banioLoft
         },
         {
@@ -183,7 +183,7 @@ const CabinGallery = () => {
 
   return (
     <section id="cabin-gallery" className="py-20 bg-brand-beige-pale overflow-x-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full box-border">
+      <div className="w-full px-4 sm:px-6 md:px-0 box-border">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

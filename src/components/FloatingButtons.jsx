@@ -19,7 +19,7 @@ const FloatingButtons = () => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-20 md:bottom-6 right-6 z-50">
       <motion.button
         onClick={handleWhatsApp}
         className="flex items-center justify-center w-16 h-16 rounded-full shadow-lg transition-all duration-200"

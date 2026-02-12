@@ -20,7 +20,7 @@ function AboutSection() {
       className="scroll-mt-24 bg-brand-beige-pale pt-16 pb-10 sm:pt-20 sm:pb-12"
       aria-labelledby="about-heading"
     >
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-4 sm:px-6 md:px-0">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

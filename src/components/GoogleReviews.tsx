@@ -242,11 +242,20 @@ export function GoogleReviews() {
           setCarouselPage(0);
           return;
         }
+        const httpCode =
+          raw && typeof raw === 'object' && 'httpCode' in raw && typeof (raw as { httpCode: unknown }).httpCode === 'number'
+            ? (raw as { httpCode: number }).httpCode
+            : res.status;
         const msg =
           (raw && typeof raw === 'object' && 'error' in raw && typeof (raw as { error: unknown }).error === 'string')
             ? (raw as { error: string }).error
             : `Error ${res.status}`;
-        setState({ status: 'error', message: msg });
+        // 403 suele ser "billing not enabled" en Google Places API
+        const friendlyMessage =
+          httpCode === 403
+            ? 'Las reseñas de Google requieren tener la facturación habilitada en el proyecto de Google Cloud. Revisá la consola de Google Cloud (Billing) para activarla.'
+            : msg;
+        setState({ status: 'error', message: friendlyMessage });
         return;
       }
 

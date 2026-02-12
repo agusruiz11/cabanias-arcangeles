@@ -4,7 +4,6 @@ import Location from '@/components/Location';
 import CabinGallery from '@/components/CabinGallery';
 import Services from '@/components/Services';
 import AboutSection from '@/components/AboutSection';
-import Testimonials from '@/components/Testimonials';
 import Contact from '@/components/Contact';
 
 /**
@@ -19,7 +18,6 @@ function AppBelowFold() {
       <Location />
       <Services />
       <AboutSection />
-      {/* <Testimonials /> */}
       <Contact />
     </>
   );

@@ -23,7 +23,7 @@ const FinalCTA = () => {
 
   return (
     <section id="contact" className="py-20 bg-brand-beige-pale">
-      <div className="max-w-4xl mx-auto px-4 text-center">
+      <div className="w-full px-4 md:px-0 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -31,11 +31,11 @@ const FinalCTA = () => {
           viewport={{ once: true }}
         >
           <h2 className="font-display text-4xl md:text-5xl font-bold text-forest mb-6">
-            ¿Listo para tu Escape Patagónico?
+            Tu lugar en bariloche te esta esperando
           </h2>
           <p className="text-xl md:text-2xl text-slate-600 mb-12 max-w-2xl mx-auto">
-            Reserva ahora y vive una experiencia inolvidable en nuestras cabañas. 
-            Te esperamos para crear recuerdos que durarán toda la vida.
+            Ubicacion ideal, tranquilidad real
+            Consultanos disponibilidad, tarifas y fechas para tu próxima estadía.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
@@ -57,8 +57,8 @@ const FinalCTA = () => {
                 style={{ whiteSpace: 'nowrap' }}
               >
                 <Phone className="w-5 h-5 flex-shrink-0" />
-<span className="font-display text-base md:text-lg">
-                +54 9 11 6209-2643
+                <span className="font-display text-base md:text-lg text-center">
+                  +54 9 11 6209-2643
                 </span>
               </Button>
               
@@ -74,7 +74,7 @@ const FinalCTA = () => {
               </Button>
             </div>
           </div>
-
+{/* 
           <motion.div 
             className="mt-12 p-6 rounded-2xl border-2 bg-gradient-to-br from-brand-beige-light to-brand-beige-pale border-brand-olive-green"
             initial={{ opacity: 0, scale: 0.95 }}
@@ -87,7 +87,7 @@ const FinalCTA = () => {
               <br className="sm:hidden" />
               <span className="sm:ml-2 font-italic text-lg">Reserva con 30 días de anticipación y obtén un 15% de descuento en tu estadía.</span>
             </p>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
       </div>
     </section>

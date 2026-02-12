@@ -26,7 +26,7 @@ const Footer = () => {
               >
                 <MapPin className="w-5 h-5 mt-1 flex-shrink-0 text-[#cd6718]" />
                 <div className="text-base">
-                  <span className="block">Villa Los Coihues</span>
+                  <span className="block">Parque Nacional Arrayanes 160, Villa Los Coihues</span>
                   <span className="block">Lago Gutiérrez, Bariloche</span>
                   <span className="block">Río Negro, Argentina</span>
                 </div>
