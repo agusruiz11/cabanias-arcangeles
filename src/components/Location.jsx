@@ -154,6 +154,9 @@ const Location = () => {
               <li>• Fábrica Cervecería Wesley - 20 min</li>
               <li>• Colonia Suiza - 30 min</li>
               <li>• Cervecería Patagonia - 35 min</li>
+              <li>• Mamuschka - 25 minutos</li>
+              <li>• Rapanui - 25 minutos</li>
+              <li>• Chocolaterie - 20 minutos</li>
             </ul>
           </div>
 

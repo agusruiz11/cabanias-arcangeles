@@ -34,7 +34,7 @@ const FinalCTA = () => {
             Tu lugar en bariloche te esta esperando
           </h2>
           <p className="text-xl md:text-2xl text-slate-600 mb-12 max-w-2xl mx-auto">
-            Ubicacion ideal, tranquilidad real
+            Ubicacion ideal, tranquilidad real.
             Consultanos disponibilidad, tarifas y fechas para tu próxima estadía.
           </p>
 

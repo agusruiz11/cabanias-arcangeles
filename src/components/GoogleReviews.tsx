@@ -417,7 +417,7 @@ export function GoogleReviews() {
           id="google-reviews-heading"
           className="font-display text-xl font-medium text-brand-dark-green sm:text-2xl"
         >
-          Reseñas de Google
+          La experiencia contada por nuestros huéspedes
         </h2>
         {(data.ratingAvg != null || data.total != null) && (
           <div className="flex items-baseline gap-2 text-brand-dark-green/80">

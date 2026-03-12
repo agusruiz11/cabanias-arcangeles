@@ -191,13 +191,8 @@ body {
 #hero .hero-bg img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
-}
-@media (min-width: 768px) {
-  #hero .hero-bg img {
-    object-fit: cover;
-  }
 }
 
 /* Bloquear scroll del body solo cuando el menú mobile está abierto */

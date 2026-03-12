@@ -81,7 +81,7 @@ const Header = () => {
             <div className="flex-shrink-0 flex flex-col justify-center md:items-center">
               {isGalleryPage ? (
                 <Link to="/" className="transition-opacity duration-200 hover:opacity-80 hover:scale-110 transition-transform duration-200 inline-block">
-                  <img src={logoNegro} alt="Cabañas Arcángeles" className="h-10 w-[180px] md:w-auto md:h-14 md:mx-auto object-contain object-left" />
+                  <img src={logoNegro} alt="Cabañas Arcángeles" className="h-10 w-[180px] md:w-auto md:h-10 md:mx-auto object-contain object-left" />
                 </Link>
               ) : (
                 <button
@@ -91,7 +91,7 @@ const Header = () => {
                   <img
                     src={isMobile ? logoBlanco : (isScrolled ? logoNegro : logoBlanco)}
                     alt="Cabañas Arcángeles"
-                    className="h-10 w-[180px] md:w-auto md:h-14 md:mx-auto object-contain object-left"
+                    className="h-10 w-[180px] md:w-auto md:h-10 md:mx-auto object-contain object-left"
                   />
                 </button>
               )}

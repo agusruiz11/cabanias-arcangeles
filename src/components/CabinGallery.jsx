@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Bed, Sofa, Bath, Utensils, Flame, LayoutGrid, Layers } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Bed, Sofa, Bath, Utensils, Flame, LayoutGrid, Layers, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import OptimizedImage from '@/components/OptimizedImage';
 // Imágenes de las cabañas
 // 4 personas
@@ -30,6 +30,29 @@ import divanLoft from '../assets/imgs/cabanias/8/divan_arriba.jpg';
 
 const CabinGallery = () => {
   const [activeTab, setActiveTab] = useState('6-personas');
+  const [lightboxIndex, setLightboxIndex] = useState(null);
+  const touchStartX = useRef(null);
+
+  const openLightbox = (index) => setLightboxIndex(index);
+  const closeLightbox = () => setLightboxIndex(null);
+
+  const showPrev = () => setLightboxIndex((i) => (i - 1 + currentCabin.images.length) % currentCabin.images.length);
+  const showNext = () => setLightboxIndex((i) => (i + 1) % currentCabin.images.length);
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const handleKey = (e) => {
+      if (e.key === 'ArrowLeft') showPrev();
+      else if (e.key === 'ArrowRight') showNext();
+      else if (e.key === 'Escape') closeLightbox();
+    };
+    window.addEventListener('keydown', handleKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', handleKey);
+      document.body.style.overflow = '';
+    };
+  }, [lightboxIndex]);
 
   const cabinTypes = {
     '4-personas': {
@@ -223,8 +246,8 @@ const CabinGallery = () => {
           transition={{ duration: 0.5 }}
           className="bg-gradient-to-br from-brand-beige-pale to-brand-beige-light rounded-2xl p-4 sm:p-6 md:p-8 mb-12 border border-brand-olive-green overflow-hidden"
         >
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center min-w-0">
-            <div className="min-w-0">
+          <div className="grid md:grid-cols-[2fr_3fr] gap-6 md:gap-8 items-center min-w-0">
+            <div className="min-w-0 order-last md:order-first">
               <h3 className="font-display text-3xl md:text-4xl font-bold text-forest mb-5">
                 {currentCabin.title}
               </h3>
@@ -255,17 +278,13 @@ const CabinGallery = () => {
               </div>
             </div>
             
-            <div className="relative w-full min-w-0 aspect-[4/3] min-h-[16rem] md:min-h-[20rem] rounded-xl overflow-hidden">
+            <div className="relative w-full min-w-0 aspect-[4/3] min-h-[16rem] md:min-h-[20rem] rounded-xl overflow-hidden order-first md:order-last">
               <OptimizedImage
                 src={currentCabin.cardImage.src}
                 alt={currentCabin.cardImage.title}
                 aspectRatio="4/3"
                 className="w-full h-full max-w-full object-cover rounded-xl shadow-lg"
               />
-              <div className="absolute bottom-4 left-4 bg-black/60 text-white p-3 rounded-lg">
-                <h4 className="font-semibold text-lg">{currentCabin.cardImage.title}</h4>
-                <p className="text-base text-gray-200">{currentCabin.cardImage.description}</p>
-              </div>
             </div>
           </div>
         </motion.div>
@@ -281,7 +300,7 @@ const CabinGallery = () => {
             Galería de Fotos - {currentCabin.title}
           </h3>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 min-w-0">
+          <div className="grid md:grid-cols-2 gap-6 min-w-0">
             {currentCabin.images.map((image, index) => (
               <motion.div
                 key={`${image.title}-${index}`}
@@ -289,6 +308,7 @@ const CabinGallery = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="group cursor-pointer min-w-0 w-full"
+                onClick={() => openLightbox(index)}
               >
                 <div className="relative w-full min-w-0 overflow-hidden rounded-xl shadow-lg aspect-[4/3]">
                   <OptimizedImage
@@ -307,6 +327,77 @@ const CabinGallery = () => {
               </motion.div>
             ))}
           </div>
+
+          {/* Lightbox */}
+          <AnimatePresence>
+            {lightboxIndex !== null && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center"
+                onClick={closeLightbox}
+                onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; }}
+                onTouchEnd={(e) => {
+                  if (touchStartX.current === null) return;
+                  const diff = touchStartX.current - e.changedTouches[0].clientX;
+                  if (Math.abs(diff) > 50) diff > 0 ? showNext() : showPrev();
+                  touchStartX.current = null;
+                }}
+              >
+                {/* Cerrar */}
+                <button
+                  className="absolute top-4 right-4 text-white bg-black/50 hover:bg-black/80 rounded-full p-2 transition-colors z-10"
+                  onClick={closeLightbox}
+                  aria-label="Cerrar"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+
+                {/* Anterior */}
+                <button
+                  className="absolute left-4 text-white bg-black/50 hover:bg-black/80 rounded-full p-3 transition-colors z-10"
+                  onClick={(e) => { e.stopPropagation(); showPrev(); }}
+                  aria-label="Anterior"
+                >
+                  <ChevronLeft className="w-7 h-7" />
+                </button>
+
+                {/* Imagen */}
+                <motion.div
+                  key={lightboxIndex}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                  className="max-w-5xl w-full mx-16 flex flex-col items-center"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <img
+                    src={currentCabin.images[lightboxIndex].src}
+                    alt={currentCabin.images[lightboxIndex].title}
+                    className="max-h-[80vh] w-full object-contain rounded-xl shadow-2xl"
+                  />
+                  <div className="mt-4 text-center text-white">
+                    <h4 className="font-semibold text-xl">{currentCabin.images[lightboxIndex].title}</h4>
+                    {currentCabin.images[lightboxIndex].description && (
+                      <p className="text-gray-300 mt-1">{currentCabin.images[lightboxIndex].description}</p>
+                    )}
+                    <p className="text-gray-500 text-sm mt-2">{lightboxIndex + 1} / {currentCabin.images.length}</p>
+                  </div>
+                </motion.div>
+
+                {/* Siguiente */}
+                <button
+                  className="absolute right-4 text-white bg-black/50 hover:bg-black/80 rounded-full p-3 transition-colors z-10"
+                  onClick={(e) => { e.stopPropagation(); showNext(); }}
+                  aria-label="Siguiente"
+                >
+                  <ChevronRight className="w-7 h-7" />
+                </button>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
       </div>
     </section>

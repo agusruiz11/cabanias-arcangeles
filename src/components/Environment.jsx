@@ -52,15 +52,18 @@ const Environment = () => {
   return (
     <section className="py-12 md:py-20 bg-brand-beige-pale">
       <div className="w-full px-4 md:px-0">
+        <h2 className="lg:hidden font-display text-4xl font-bold text-forest mb-6 text-center">
+          La Posada
+        </h2>
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center md:text-left"
+            className="text-center md:text-left order-last lg:order-first"
           >
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-forest mb-6">
+            <h2 className="hidden lg:block font-display text-4xl md:text-5xl font-bold text-forest mb-6">
               La Posada
             </h2>
             <div className="space-y-6 text-lg md:text-xl text-slate-700 leading-relaxed max-w-prose md:max-w-none mx-auto md:mx-0">
@@ -85,7 +88,7 @@ const Environment = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative"
+            className="relative order-first lg:order-last"
           >
             {/* Aspect ratio fijo en mobile y desktop para evitar CLS y saltos al cambiar imagen */}
             <div className="rounded-2xl overflow-hidden shadow-2xl w-full aspect-[4/3] bg-slate-200/60">
