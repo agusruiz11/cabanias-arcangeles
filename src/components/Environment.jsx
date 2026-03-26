@@ -50,12 +50,12 @@ const Environment = () => {
   const currentLoaded = loadedImages.has(currentIndex);
 
   return (
-    <section className="py-12 md:py-20 bg-brand-beige-pale">
+    <section className="hidden md:block py-12 md:py-20 bg-brand-beige-pale">
       <div className="w-full px-4 md:px-0">
         <h2 className="lg:hidden font-display text-4xl font-bold text-forest mb-6 text-center">
           La Posada
         </h2>
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-[2fr_3fr] gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}

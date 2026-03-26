@@ -96,6 +96,10 @@ const CabinGallery = () => {
           title: "Parrilla",
           description: "Sector de Parrillas compartidas",
           src: parrilla
+        },
+        { title: "Vista desde la cabaña",
+          description: "Hermosa vista desde la ventana de la cabaña",
+          src: vista
         }
       ]
     },

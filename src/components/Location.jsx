@@ -29,7 +29,7 @@ const Location = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="hidden md:block text-center mb-16"
         >
           <h2 className="font-display text-4xl md:text-5xl font-bold text-forest mb-6">
             Cómo Llegar
@@ -47,7 +47,7 @@ const Location = () => {
           viewport={{ once: true }}
           className="mb-10"
         >
-          <div className="bg-white rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg border border-gray-100 overflow-hidden">
+          <div className="hidden md:block bg-white rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg border border-gray-100 overflow-hidden">
             <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6 lg:mb-8">
               <div className="w-12 h-12 bg-forest rounded-full flex items-center justify-center flex-shrink-0">
                 <Car className="w-6 h-6 text-white" />
@@ -100,7 +100,7 @@ const Location = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6"
+          className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6"
         >
           <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg border border-gray-100">
             <div className="w-12 h-12 bg-forest rounded-full flex items-center justify-center mb-4">

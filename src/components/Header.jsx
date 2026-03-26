@@ -73,7 +73,7 @@ const Header = () => {
     <>
       <header
         data-scrolled={isScrolled || isGalleryPage ? 'true' : 'false'}
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 min-h-[88px] h-[88px] md:min-h-0 md:h-auto bg-[#0a180f] md:bg-transparent"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 md:min-h-0 md:h-auto bg-[#0a180f] md:bg-transparent ${isScrolled ? 'min-h-[60px] h-[60px]' : 'min-h-[88px] h-[88px]'}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full md:py-4">
           <div className="flex justify-between items-center h-full md:flex md:py-0 py-0">
@@ -95,9 +95,9 @@ const Header = () => {
                   />
                 </button>
               )}
-              <span className={`font-italic text-xs md:text-sm lg:text-xl max-w-2xl md:mx-auto leading-relaxed drop-shadow-2xl text-left md:text-center mt-1 md:mt-2 ${
-                isMobile ? 'text-white' : (isScrolled ? 'text-brand-dark-green' : 'text-white')
-              }`}>
+              <span className={`font-italic text-xs md:text-sm lg:text-xl max-w-2xl md:mx-auto leading-relaxed drop-shadow-2xl text-left md:text-center transition-all duration-300 overflow-hidden ${
+                isScrolled ? 'max-h-0 opacity-0 mt-0' : 'max-h-8 opacity-100 mt-1 md:mt-2'
+              } ${isMobile ? 'text-white' : (isScrolled ? 'text-brand-dark-green' : 'text-white')}`}>
                 Viví Bariloche, dormí como en casa.
               </span>
             </div>

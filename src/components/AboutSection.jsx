@@ -29,11 +29,11 @@ function AboutSection() {
         >
           <h2
             id="about-heading"
-            className="font-display text-3xl font-medium text-brand-dark-green sm:text-4xl"
+            className="hidden md:block font-display text-3xl font-medium text-brand-dark-green sm:text-4xl"
           >
             Nosotros
           </h2>
-          <p className="mt-4 text-lg text-brand-dark-green/80 sm:mb-4">
+          <p className="hidden md:block mt-4 text-lg text-brand-dark-green/80 sm:mb-4">
             Fundadas en 2006, las Cabañas Arcángeles ofrecen un lugar tranquilo rodeado de naturaleza, a metros del Lago Gutiérrez. <br/> Atendidas por su dueña Marisa, buscamos que cada huésped disfrute plenamente de su experiencia y se sienta como en casa.  
           </p>
           <div className="mt-4">

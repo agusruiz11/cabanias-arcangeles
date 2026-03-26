@@ -214,6 +214,7 @@ export function GoogleReviews() {
   const [carouselPage, setCarouselPage] = useState(0);
   const isMobile = useIsMobile();
   const scrollRef = useRef<HTMLDivElement>(null);
+  const isProgrammaticScroll = useRef(false);
 
   const fetchReviews = async () => {
     setState({ status: 'loading' });
@@ -323,7 +324,10 @@ export function GoogleReviews() {
     if (!isSuccess || !isMobile || !scrollRef.current) return;
     const el = scrollRef.current;
     const cardWidth = el.offsetWidth;
+    isProgrammaticScroll.current = true;
     el.scrollTo({ left: safePage * cardWidth, behavior: 'smooth' });
+    const timer = setTimeout(() => { isProgrammaticScroll.current = false; }, 500);
+    return () => clearTimeout(timer);
   }, [safePage, isMobile, isSuccess]);
 
   // Actualizar carouselPage cuando el usuario hace scroll/swipe (siempre llamar el hook)
@@ -331,6 +335,7 @@ export function GoogleReviews() {
     if (!isMobile || !scrollRef.current || totalPages === 0) return;
     const el = scrollRef.current;
     const handleScroll = () => {
+      if (isProgrammaticScroll.current) return;
       const cardWidth = el.offsetWidth;
       if (cardWidth <= 0) return;
       const index = Math.round(el.scrollLeft / cardWidth);
@@ -434,35 +439,58 @@ export function GoogleReviews() {
         )}
       </div>
 
-      {/* Carrusel: mobile 1 card + swipe / desktop 3 cards + flechas */}
-      <div className="relative flex items-stretch gap-2">
-        <button
-          type="button"
-          onClick={() => setCarouselPage((p) => Math.max(0, p - 1))}
-          disabled={safePage === 0}
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-600 transition-colors hover:bg-gray-300 disabled:opacity-40 disabled:pointer-events-none self-center focus:outline-none focus:ring-2 focus:ring-brand-dark-green focus:ring-offset-2"
-          aria-label="Reseñas anteriores"
-        >
-          <ChevronLeft className="h-5 w-5" aria-hidden />
-        </button>
-
-        {/* Mobile: scroll horizontal con snap, una card a la vez, swipe con el dedo */}
-        {/* Desktop: grid de 3 cards */}
-        <div
-          ref={scrollRef}
-          className={`min-w-0 flex-1 ${isMobile ? 'flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory scroll-smooth [-webkit-overflow-scrolling:touch] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden' : ''}`}
-        >
-          {isMobile ? (
-            reviews.map((review, i) => (
-              <div key={i} className="flex-[0_0_100%] shrink-0 snap-start">
+      {/* Carrusel: mobile 1 card + swipe + botones flotantes / desktop 3 cards + flechas laterales */}
+      {isMobile ? (
+        <div className="relative">
+          {/* Scroll container full-width en mobile */}
+          <div
+            ref={scrollRef}
+            className="flex w-full overflow-x-auto overflow-y-hidden snap-x snap-mandatory scroll-smooth [-webkit-overflow-scrolling:touch] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {reviews.map((review, i) => (
+              <div key={i} className="w-full flex-[0_0_100%] shrink-0 snap-start px-1">
                 <ReviewCard
                   review={review}
                   defaultTruncate={(review.text?.length ?? 0) > TRUNCATE_LENGTH}
                   initialColorIndex={i}
                 />
               </div>
-            ))
-          ) : (
+            ))}
+          </div>
+
+          {/* Botones flotantes sobre el carrusel en mobile */}
+          <button
+            type="button"
+            onClick={() => setCarouselPage((p) => Math.max(0, p - 1))}
+            disabled={safePage === 0}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white/80 text-gray-600 shadow-md transition-all hover:bg-white active:scale-95 disabled:opacity-0 disabled:pointer-events-none focus:outline-none"
+            aria-label="Reseña anterior"
+          >
+            <ChevronLeft className="h-5 w-5" aria-hidden />
+          </button>
+          <button
+            type="button"
+            onClick={() => setCarouselPage((p) => Math.min(totalPages - 1, p + 1))}
+            disabled={safePage >= totalPages - 1}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white/80 text-gray-600 shadow-md transition-all hover:bg-white active:scale-95 disabled:opacity-0 disabled:pointer-events-none focus:outline-none"
+            aria-label="Siguiente reseña"
+          >
+            <ChevronRight className="h-5 w-5" aria-hidden />
+          </button>
+        </div>
+      ) : (
+        <div className="flex items-stretch gap-2">
+          <button
+            type="button"
+            onClick={() => setCarouselPage((p) => Math.max(0, p - 1))}
+            disabled={safePage === 0}
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-600 transition-colors hover:bg-gray-300 disabled:opacity-40 disabled:pointer-events-none self-center focus:outline-none focus:ring-2 focus:ring-brand-dark-green focus:ring-offset-2"
+            aria-label="Reseñas anteriores"
+          >
+            <ChevronLeft className="h-5 w-5" aria-hidden />
+          </button>
+
+          <div className="min-w-0 flex-1">
             <div className="grid grid-cols-3 gap-4 items-start">
               {visibleReviews.map((review, i) => (
                 <ReviewCard
@@ -473,19 +501,19 @@ export function GoogleReviews() {
                 />
               ))}
             </div>
-          )}
-        </div>
+          </div>
 
-        <button
-          type="button"
-          onClick={() => setCarouselPage((p) => Math.min(totalPages - 1, p + 1))}
-          disabled={safePage >= totalPages - 1}
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-600 transition-colors hover:bg-gray-300 disabled:opacity-40 disabled:pointer-events-none self-center focus:outline-none focus:ring-2 focus:ring-brand-dark-green focus:ring-offset-2"
-          aria-label="Más reseñas"
-        >
-          <ChevronRight className="h-5 w-5" aria-hidden />
-        </button>
-      </div>
+          <button
+            type="button"
+            onClick={() => setCarouselPage((p) => Math.min(totalPages - 1, p + 1))}
+            disabled={safePage >= totalPages - 1}
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-600 transition-colors hover:bg-gray-300 disabled:opacity-40 disabled:pointer-events-none self-center focus:outline-none focus:ring-2 focus:ring-brand-dark-green focus:ring-offset-2"
+            aria-label="Más reseñas"
+          >
+            <ChevronRight className="h-5 w-5" aria-hidden />
+          </button>
+        </div>
+      )}
 
       {/* Puntos de paginación */}
       {totalPages > 1 && (
