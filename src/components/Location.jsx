@@ -29,12 +29,12 @@ const Location = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="hidden md:block text-center mb-16"
+          className="text-center mb-16"
         >
           <h2 className="font-display text-4xl md:text-5xl font-bold text-forest mb-6">
             Cómo Llegar
           </h2>
-          <p className="text-xl md:text-2xl text-slate-600 max-w-2xl mx-auto">
+          <p className="hidden md:block text-xl md:text-2xl text-slate-600 max-w-2xl mx-auto">
             Instrucciones detalladas para llegar a Cabañas Arcángeles
           </p>
         </motion.div>

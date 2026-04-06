@@ -254,7 +254,7 @@ export function GoogleReviews() {
         // 403 suele ser "billing not enabled" en Google Places API
         const friendlyMessage =
           httpCode === 403
-            ? 'Las reseñas de Google requieren tener la facturación habilitada en el proyecto de Google Cloud. Revisá la consola de Google Cloud (Billing) para activarla.'
+            ? 'Por el momento las reseñas no están disponibles. Podés ver todas nuestras reseñas directamente en Google Maps.'
             : msg;
         setState({ status: 'error', message: friendlyMessage });
         return;
