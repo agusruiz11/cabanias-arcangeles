@@ -73,7 +73,7 @@ function App() {
       <div className="min-h-screen w-full max-w-[100vw] overflow-x-hidden bg-brand-beige-pale">
         <Header />
         <Hero />
-        <div className="w-full md:px-5">
+        <div className="w-full md:px-8 lg:px-16">
           <Suspense fallback={<div className="min-h-[30vh]" aria-hidden />}>
             <AppBelowFold />
           </Suspense>

@@ -22,14 +22,14 @@ const getMapSrc = () => {
 
 const Location = () => {
   return (
-    <section id="location" className="py-20 bg-brand-beige-pale">
+    <section id="location" className="pt-4 pb-6 md:py-20 bg-brand-beige-pale">
       <div className="w-full px-4 md:px-0">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-6 md:mb-16"
         >
           <h2 className="font-display text-4xl md:text-5xl font-bold text-forest mb-6">
             Cómo Llegar
@@ -87,10 +87,10 @@ const Location = () => {
               </div>
             </div>
           </div>
-          <MapIframe 
+          <MapIframe
             src={getMapSrc()}
             title="Mapa de Villa Los Coihues - Cabañas Arcángeles"
-            className='mt-10 rounded-xl'
+            className='mt-4 md:mt-10 rounded-xl'
           />
         </motion.div>
 

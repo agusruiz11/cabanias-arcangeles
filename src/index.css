@@ -46,7 +46,7 @@ html {
 }
 
 body {
-  font-family: 'VolumeTC', sans-serif;
+  font-family: 'General Sans', sans-serif;
   @apply bg-white text-slate-800;
   margin: 0;
   padding: 0;

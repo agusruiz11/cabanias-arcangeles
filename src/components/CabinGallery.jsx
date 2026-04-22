@@ -209,7 +209,7 @@ const CabinGallery = () => {
   const currentCabin = cabinTypes[activeTab];
 
   return (
-    <section id="cabin-gallery" className="py-20 bg-brand-beige-pale overflow-x-hidden">
+    <section id="cabin-gallery" className="pt-10 pb-6 md:py-20 bg-brand-beige-pale overflow-x-hidden">
       <div className="w-full px-4 sm:px-6 md:px-0 box-border">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -257,7 +257,7 @@ const CabinGallery = () => {
               </h3>
 
               <div>
-                <h4 className="font-semibold text-lg text-forest mb-4">Características</h4>
+                <h4 className="font-sans font-semibold text-lg text-forest mb-4">Características</h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {currentCabin.features.map((feature, index) => {
                     const IconComponent = feature.icon;
@@ -300,7 +300,7 @@ const CabinGallery = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h3 className="text-2xl md:text-3xl font-bold text-forest mb-8 text-center">
+          <h3 className="font-sans text-2xl md:text-3xl font-bold text-forest mb-8 text-center">
             Galería de Fotos - {currentCabin.title}
           </h3>
           

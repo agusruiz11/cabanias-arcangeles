@@ -17,7 +17,7 @@ const Footer = () => {
             />
           </div>
             <div className="space-y-4">
-            <h4 className="font-display text-[#b5bc5e] text-xl mb-6 text-center">Ubicación</h4>
+            <h4 className="font-display text-[#b5bc5e] text-xl mb-6">Ubicación</h4>
               <a
                 href="https://maps.app.goo.gl/nanBVxe5UNXXKAF76"
                 target="_blank"
@@ -33,7 +33,7 @@ const Footer = () => {
               </a>
             </div>
             <div className="space-y-4">
-              <h4 className="font-display text-[#b5bc5e] text-xl mb-6 text-center">Contacto</h4>
+              <h4 className="font-display text-[#b5bc5e] text-xl mb-6">Contacto</h4>
             <div className="space-y-4 text-base">              
               <a
                 href="tel:+5491162092643"
@@ -83,8 +83,8 @@ const Footer = () => {
 
           {/* Enlaces rápidos */}
           <div>
-            <h4 className="font-display text-[#b5bc5e] text-xl mb-6 text-center">Enlaces Rápidos</h4>
-            <ul className="space-y-3 text-center text-base">
+            <h4 className="font-display text-[#b5bc5e] text-xl mb-6">Enlaces Rápidos</h4>
+            <ul className="space-y-3 text-base">
               <li>
                 <a
                   href="#cabin-gallery"
@@ -140,7 +140,7 @@ const Footer = () => {
 
           {/* Información adicional */}
           <div>
-            <h4 className="font-display text-[#b5bc5e] text-xl mb-6 text-center">Información</h4>
+            <h4 className="font-display text-[#b5bc5e] text-xl mb-6">Información</h4>
             <div className="space-y-3 text-base">
               <p>Check-in: 15:00 hs</p>
               <p>Check-out: 11:00 hs</p>

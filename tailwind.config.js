@@ -15,8 +15,9 @@ module.exports = {
 		},
 		extend: {
 			fontFamily: {
-				'sans': ['VolumeTC', 'sans-serif'],
-				'display': ['VolumeTC Sans', 'sans-serif'],
+				'sans': ['VolumeTC', 'sans-serif'],       // Subtítulos
+				'display': ['VolumeTC Sans', 'sans-serif'], // Títulos
+				'body': ['General Sans', 'sans-serif'],    // Texto general y descripciones
 			},
 			colors: {
 				// Colores de marca - Primarios

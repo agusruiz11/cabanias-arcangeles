@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { X, ArrowLeft } from 'lucide-react';
 import OptimizedImage from '@/components/OptimizedImage';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -126,15 +126,16 @@ const Gallery = () => {
         <meta name="description" content="Galería de fotos de nuestras cabañas en Bariloche. Descubre los espacios de cabañas para 4, 6 y 8 personas, el entorno y las vistas al Lago Gutiérrez." />
       </Helmet>
       <Header />
-      <main className="pt-24 pb-16 w-full md:px-5">
+      <main className="pt-28 md:pt-36 pb-16 w-full md:px-5">
         <div className="w-full mx-auto px-4 md:px-0">
           {/* Breadcrumb / Volver */}
           <div className="mb-8">
             <Link
               to="/"
-              className="inline-flex items-center text-brand-dark-green hover:text-brand-burnt-orange font-medium transition-colors"
+              className="inline-flex items-center gap-2 font-sans text-sm font-medium text-white bg-brand-dark-green hover:bg-brand-burnt-orange px-4 py-2 rounded-full shadow-sm transition-colors duration-200"
             >
-              ← Volver al inicio
+              <ArrowLeft className="w-4 h-4" />
+              Volver al inicio
             </Link>
           </div>
 
