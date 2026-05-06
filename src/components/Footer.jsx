@@ -143,7 +143,7 @@ const Footer = () => {
             <h4 className="font-display text-[#b5bc5e] text-xl mb-6">Información</h4>
             <div className="space-y-3 text-base">
               <p>Check-in: 15:00 hs</p>
-              <p>Check-out: 11:00 hs</p>
+              <p>Check-out: 10:00 hs</p>
               <p>Capacidad: 2-8 personas por cabaña</p>
               <p>Mascotas: no permitidas</p>
             </div>

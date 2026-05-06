@@ -53,7 +53,7 @@ const Environment = () => {
     <section className="hidden md:block py-12 md:py-20 bg-brand-beige-pale">
       <div className="w-full px-4 md:px-0">
         <h2 className="lg:hidden font-display text-4xl font-bold text-forest mb-6 text-center">
-          La Posada
+          Nuestro Espacio
         </h2>
         <div className="grid lg:grid-cols-[2fr_3fr] gap-12 items-center">
           <motion.div
@@ -64,7 +64,7 @@ const Environment = () => {
             className="text-center md:text-left order-last lg:order-first"
           >
             <h2 className="hidden lg:block font-display text-4xl md:text-5xl font-bold text-forest mb-6">
-              La Posada
+              Nuestro Espacio
             </h2>
             <div className="space-y-6 text-lg md:text-xl text-slate-700 leading-relaxed max-w-prose md:max-w-none mx-auto md:mx-0">
               <p>

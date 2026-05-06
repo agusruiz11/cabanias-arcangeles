@@ -122,10 +122,11 @@ const Location = () => {
             </div>
             <h3 className="font-semibold text-lg text-forest mb-3">Senderos y miradores de la zona</h3>
             <ul className="text-slate-600 text-sm space-y-1.5">
-              <li>• Cascada de los Duendes - a 5 min del sendero</li>
-              <li>• Mirador del Lago Gutiérrez - a 5 min del sendero</li>
-              <li>• Playa Muñoz - a 5 min del sendero</li>
-              <li>• Refugio Frey - a 5 min del sendero</li>
+              <li>• Cascada de los Duendes </li>
+              <li>• Mirador del Lago Gutiérrez </li>
+              <li>• Playa Muñoz </li>
+              <li>• Refugio Frey </li>
+              <li>• Cerro San Martín </li>
             </ul>
           </div>
 
@@ -149,14 +150,14 @@ const Location = () => {
             </div>
             <h3 className="font-semibold text-lg text-forest mb-3">Gastronomía y experiencias</h3>
             <ul className="text-slate-600 text-sm space-y-1.5">
+              <li>• Cafe Local - 200 metros</li>
+              <li>• Taruka Beer & Burger - 200 metros</li>
               <li>• Cervecería Kunstmann - 10 min</li>
               <li>• Cervecería Berlina - 15 min</li>
               <li>• Fábrica Cervecería Wesley - 20 min</li>
               <li>• Colonia Suiza - 30 min</li>
               <li>• Cervecería Patagonia - 35 min</li>
-              <li>• Mamuschka - 25 minutos</li>
-              <li>• Rapanui - 25 minutos</li>
-              <li>• Chocolaterie - 20 minutos</li>
+              <li>• Mamuschka & Rapanui - 25 minutos</li>
             </ul>
           </div>
 
