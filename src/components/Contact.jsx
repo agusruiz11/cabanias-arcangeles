@@ -8,9 +8,9 @@ const FinalCTA = () => {
   const handleContact = (method) => {
     if (method === 'whatsapp') {
       const message = encodeURIComponent('Hola! Me interesa reservar en Cabañas Arcángeles. ¿Podrían darme más información?');
-      window.open(`https://wa.me/5491162092643?text=${message}`, '_blank');
+      window.open(`https://wa.me/5491133198165?text=${message}`, '_blank');
     } else if (method === 'phone') {
-      window.location.href = 'tel:+5491162092643';
+      window.location.href = 'tel:+5491133198165';
     } else if (method === 'email') {
       window.location.href = 'mailto:info@cabañasarcangeles.com';
     } else {
@@ -57,7 +57,7 @@ const FinalCTA = () => {
               >
                 <Phone className="w-5 h-5 flex-shrink-0" />
                 <span className="font-display text-base md:text-lg text-center">
-                  +54 9 11 6209-2643
+                  +54 9 11 3319-8165
                 </span>
               </Button>
               

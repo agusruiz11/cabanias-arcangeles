@@ -36,21 +36,21 @@ const Footer = () => {
               <h4 className="font-display text-[#b5bc5e] text-xl mb-6">Contacto</h4>
             <div className="space-y-4 text-base">              
               <a
-                href="tel:+5491162092643"
+                href="tel:+5491133198165"
                 className="flex items-center space-x-3 hover:text-[#5e9fe1] transition-colors"
               >
                 <Phone className="w-5 h-5 flex-shrink-0 text-[#cd6718]" />
-                <span>+54 9 11 6209-2643</span>
+                <span>+54 9 11 3319-8165</span>
               </a>
               
               <a
-                href="https://wa.me/5491162092643"
+                href="https://wa.me/5491133198165"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-3 hover:text-[#5e9fe1] transition-colors"
               >
                 <MessageCircle className="w-5 h-5 flex-shrink-0 text-[#cd6718]" />
-                <span>+54 9 11 6209-2643</span>
+                <span>+54 9 11 3319-8165</span>
               </a>
               
               <a
